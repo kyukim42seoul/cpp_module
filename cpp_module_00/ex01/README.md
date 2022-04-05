@@ -6,6 +6,19 @@
 클래스 공통 규칙
 * show() 함수로 클래스의 private 변수 출력
 
+각 클래스의 역할
+* listener
+	* listen
+	* understand what to do : ADD, SEARCH, EXIT, Guide ...
+	* do something to phonebook
+* phonebook
+	* show
+		* all(summary)
+		* choosed index(full)
+	* record
+	* delete
+
+
 사용 할 수 있는 명령어
 * ADD
 	* 순차적으로 각 필드 입력 받음

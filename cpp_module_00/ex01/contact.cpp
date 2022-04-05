@@ -1,44 +1,69 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   contact.cpp                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: kyukim <kyukim@student.42seoul.kr>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 16:29:11 by kyukim            #+#    #+#             */
-/*   Updated: 2022/03/31 16:32:56 by kyukim           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "PhoneBook.hpp"
 
-# include "phonebook.hpp"
-
-void	contact::show_data(int index)
+Contact::Contact(void)
 {
-	int	index;
+};
 
-	cout << '|' << index << '|';
-	cout << get_first_name() << '|';
-	cout << get_last_name() << '|';
-	cout << get_nick_name() << '|';
+Contact::~Contact()
+{
+};
+
+void	Contact::set(std::string first, std::string last, std::string nick, std::string number, std::string secret)
+{
+	first_name = first;
+	last_name = last;
+	nick_name = nick;
+	phone_number = number;
+	darkest_secret = secret;
+};
+
+void	Contact::print(void)
+{
+	std::cout << " first_name : " << first_name << std::endl;
+	std::cout << " last_name : " << last_name << std::endl;
+	std::cout << " nick_name : " << nick_name << std::endl;
+	std::cout << " phone_number : " << phone_number << std::endl;
+	std::cout << " darkest_secret : " << darkest_secret << std::endl;
+};
+
+void	Contact::show_summary(int index)
+{
+	std::cout << std::setw(10) << index;
+	std::cout << '|';
+	if (first_name.length() > 10)
+		std::cout << std::setw(10) << first_name.substr(0, 9) << '.';
+	else
+		std::cout << std::setw(10) << first_name.substr(0, 10);
+	std::cout << '|';
+	if (last_name.length() > 10)
+		std::cout << std::setw(10) << last_name.substr(0, 9) << '.';
+	else
+		std::cout << std::setw(10) << last_name.substr(0, 10);
+	std::cout << '|';
+	if (nick_name.length() > 10)
+		std::cout << std::setw(10) << nick_name.substr(0, 9) << '.';
+	else
+		std::cout << std::setw(10) << nick_name.substr(0, 10);
+	std::cout << std::endl;
 }
 
-char	*contact::get_first_name()
+void	Contact::show_full()
 {
-	return (first_name);
-};
-char	*contact::get_last_name()
+	std::cout << "first_name : " << first_name << std::endl;
+	std::cout << "last_name : " << last_name << std::endl;
+	std::cout << "nick_name : " << nick_name << std::endl;
+	std::cout << "phone_number : " << phone_number << std::endl;
+	std::cout << "darkest_secret : " << darkest_secret << std::endl;
+}
+
+Contact& Contact::operator = (Contact& other)
 {
-	return (last_name);
-};
-char	*contact::get_nick_name()
-{
-	return (nickname);
-};
-char	*contact::get_phone_number()
-{
-	return (phone_number);
-};
-char	*contact::get_darkest_secret()
-{
-	return (darkest_secret);
-};
+	Contact&	ref_this = *this;
+
+	this->first_name = other.first_name;
+	this->last_name = other.last_name;
+	this->nick_name = other.nick_name;
+	this->phone_number = other.phone_number;
+	this->darkest_secret = other.darkest_secret;
+	return (ref_this);
+}

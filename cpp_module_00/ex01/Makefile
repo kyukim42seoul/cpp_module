@@ -1,23 +1,10 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: kyukim <kyukim@student.42seoul.kr>         +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/03/17 13:45:28 by kyukim            #+#    #+#              #
-#    Updated: 2022/03/31 16:12:23 by kyukim           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-NAME = phonebook
+NAME = PhoneBook
 CC = c++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJECTS = main.o \
-			phonebook.o \
-			action.o \
-			listener.o \
-			contact.o
+	PhoneBook.o \
+	Contact.o \
+	Util.o \
 
 all : $(NAME) clean
 

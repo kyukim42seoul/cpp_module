@@ -1,50 +1,29 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: kyukim <kyukim@student.42seoul.kr>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 15:07:13 by kyukim            #+#    #+#             */
-/*   Updated: 2022/03/31 16:09:19 by kyukim           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+//#include "PhoneBook.hpp"
 
-#include "phonebook.hpp"
-
-/*
-class main
-{
-	main()
-	{
-		char	buf[128];
-	};
-	main(listener name)
-	{
-
-	};
-};*/
+#include "PhoneBook.hpp"
 
 int	main()
 {
-	listener	a;
-
-	a.listen();
-/*	char	buf[128];
+	PhoneBook	book;
 
 	while (true)
 	{
-		cin.getline(buf, 128);
-		if (strcmp(buf, "exit") == 0)
-			exit(EXIT_SUCCESS); 
-		if (cin.fail())
+		if (std::cin.eof())
+			exit(EXIT_SUCCESS);
+		book.get_cmd();
+		book.set_flag();
+		if (book.get_flag() == 1)
 		{
-			cout << "Invalid" << endl;
-			break ;
+			book.add();
+			book.clear_flag();
 		}
-		else
-			cout << buf << endl;
-		cin.clear();
-	};*/
+		else if (book.get_flag() == 2)
+		{
+			book.search();
+			book.clear_flag();
+		}
+		else if (book.get_flag() == 3)
+			exit(EXIT_SUCCESS);
+	}
 	return (EXIT_SUCCESS);
 }
