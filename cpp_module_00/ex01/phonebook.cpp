@@ -8,8 +8,6 @@ void	PhoneBook::get_cmd()
 {
 	guide(0);
 	std::getline(std::cin, cmd);
-	for (int index = 0; index < cmd.length(); index++)
-		cmd[index] = std::toupper(cmd[index]);
 }
 
 void	PhoneBook::set_flag()
@@ -110,12 +108,6 @@ void	PhoneBook::guide(int count)
 		std::cout << "Please input darkest secret" << std::endl;
 	else if (flag == 2 && count == 0)
 		std::cout << "Please input index" << std::endl;
-}
-
-void	PhoneBook::move_forward()
-{
-	for (int count = 0; count < 7; count++)
-		list[count] = list[count + 1];
 }
 
 PhoneBook::~PhoneBook()

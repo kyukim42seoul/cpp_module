@@ -19,6 +19,7 @@ class PhoneBook
 		const std::string	cmd_add;
 		const std::string	cmd_search;
 		const std::string	cmd_exit;
+		void	guide(int count);
 	public:
 		PhoneBook(void);
 		~PhoneBook();
@@ -28,8 +29,6 @@ class PhoneBook
 		void	clear_flag();
 		void	add();
 		void	search();
-		void	guide(int count);
-		void	move_forward();
 };
 
 #endif

@@ -17,31 +17,22 @@ void	Contact::set(std::string first, std::string last, std::string nick, std::st
 	darkest_secret = secret;
 };
 
-void	Contact::print(void)
-{
-	std::cout << " first_name : " << first_name << std::endl;
-	std::cout << " last_name : " << last_name << std::endl;
-	std::cout << " nick_name : " << nick_name << std::endl;
-	std::cout << " phone_number : " << phone_number << std::endl;
-	std::cout << " darkest_secret : " << darkest_secret << std::endl;
-};
-
 void	Contact::show_summary(int index)
 {
 	std::cout << std::setw(10) << index;
 	std::cout << '|';
 	if (first_name.length() > 10)
-		std::cout << std::setw(10) << first_name.substr(0, 9) << '.';
+		std::cout << std::setw(9) << first_name.substr(0, 9) << '.';
 	else
 		std::cout << std::setw(10) << first_name.substr(0, 10);
 	std::cout << '|';
 	if (last_name.length() > 10)
-		std::cout << std::setw(10) << last_name.substr(0, 9) << '.';
+		std::cout << std::setw(9) << last_name.substr(0, 9) << '.';
 	else
 		std::cout << std::setw(10) << last_name.substr(0, 10);
 	std::cout << '|';
 	if (nick_name.length() > 10)
-		std::cout << std::setw(10) << nick_name.substr(0, 9) << '.';
+		std::cout << std::setw(9) << nick_name.substr(0, 9) << '.';
 	else
 		std::cout << std::setw(10) << nick_name.substr(0, 10);
 	std::cout << std::endl;

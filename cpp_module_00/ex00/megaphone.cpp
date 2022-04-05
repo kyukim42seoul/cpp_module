@@ -6,14 +6,12 @@
 /*   By: kyukim <kyukim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:54:32 by kyukim            #+#    #+#             */
-/*   Updated: 2022/03/31 15:31:48 by kyukim           ###   ########.fr       */
+/*   Updated: 2022/04/05 22:03:07 by kyukim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
-
-using namespace std;	//이거 쓰면 안 됨.
 
 /*
 	표준입력을 받을 때, cpp 스타일을 쓰라고 하는 말이
@@ -24,7 +22,7 @@ class megaphone
 {
 	private:
 		int				index;
-		string			noise;
+		std::string			noise;
 	public:
 		megaphone()
 		{
@@ -32,7 +30,7 @@ class megaphone
 		}
 		void	set();
 		void	basic_noise();
-		string	make_louder(string message);
+		std::string	make_louder(std::string message);
 };
 
 void	megaphone::set()
@@ -43,10 +41,10 @@ void	megaphone::set()
 
 void	megaphone::basic_noise()
 {
-	cout << noise << endl;
+	std::cout << noise << std::endl;
 }
 
-string megaphone::make_louder(string message)
+std::string megaphone::make_louder(std::string message)
 {
 	while (message[index])
 	{
@@ -61,7 +59,7 @@ int main(int argc, char *argv[])
 {
 	int			index;
 	megaphone	megaphone;
-	string		message;
+	std::string		message;
 
 	index = 1;
 	if (argc < 2)
@@ -73,7 +71,7 @@ int main(int argc, char *argv[])
 			message += argv[index];
 			index++;
 		}
-		cout << megaphone.make_louder(message) << endl;
+		std::cout << megaphone.make_louder(message) << std::endl;
 	}
 	return (EXIT_SUCCESS);
 }

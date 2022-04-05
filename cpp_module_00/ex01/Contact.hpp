@@ -17,7 +17,6 @@ class Contact
 		void	set(std::string first, std::string last, std::string nick, std::string number, std::string secret);
 		void	show_summary(int index);
 		void	show_full(void);
-		void	print(void);
 		Contact& operator = (Contact& other);
 };
 
