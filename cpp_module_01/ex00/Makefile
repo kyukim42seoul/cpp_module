@@ -1,10 +1,10 @@
-NAME = PhoneBook
+NAME = Zombie
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJECTS = main.o \
-	PhoneBook.o \
-	Contact.o \
-	Util.o \
+	Zombie.o \
+	newZombie.o \
+	randomChump.o \
 
 all : $(NAME) clean
 
