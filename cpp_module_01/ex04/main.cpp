@@ -28,15 +28,36 @@
 int	main(int argc, char *argv[])
 {
 	if (argc != 4)
+	{
+		std::cerr << "[ERR] incorrect number of arguments" << std::endl;
 		return (EXIT_FAILURE);
+	}
 	std::ifstream	fin(argv[1]);
 	if (fin.fail())
 	{
-		std::cout << "[ERR] fail open filename" << std::endl;
+		std::cerr << "[ERR] fail open filename" << std::endl;
 		return (EXIT_FAILURE);
 	}
+	std::string		target(argv[2]);
+	std::string		change(argv[3]);
+	std::string		buf;
+	while (!fin.eof())
+	{
+		std::string	temp;
+		std::getline(fin, temp);
+		buf += temp;
+		buf += '\n';
+	}
+	std::size_t location;
+	while (buf.find(target, location) != std::string::npos)
+	{
+		location = buf.find(target, location);
+		buf = buf.substr(0, location) + change + buf.substr(location + target.length(), buf.length());
+		std::cout << "result : " << buf << std::endl;
+		location++;
+	}
 	std::string		replace_name(argv[1]);
-	replace_name += ".replace";
-	std::ofstream	fout(replace_name);
+	std::ofstream	fout(replace_name + ".replace");
+	fout << buf;
 	return (EXIT_SUCCESS);
 }
