@@ -9,3 +9,5 @@
 		고정소수점, 부동소수점 반환 메서드 작성
 	필요한 함수 for TEST
 		(int)32bit 인자를 받아 bit 를 출력하는 함수
+02-01 : temp.cpp : 비트 확인하기 위한 예시 저장용
+	  : operator << float/int 분기 적어야 함

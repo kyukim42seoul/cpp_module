@@ -22,30 +22,30 @@ Fixed::Fixed(void) : fixed_point_number(0)
 /*
 	It converts it to the corresponding fixed-point value. The fractional bits value is initialized to 8 like in exercise 00.
 */
-Fixed::Fixed(const int number) : fixed_point_number(0)
+Fixed::Fixed(const int number)
 {
-	std::cout << "[INT] input" << std::endl;
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "[INT] Default constructor called" << std::endl;
+	fixed_point_number = number << this->number_of_fractional_bits;
 }
 
-Fixed::Fixed(const float number) : fixed_point_number(0)
+Fixed::Fixed(const float number)
 {
-	std::cout << "[FLOAT] input" << std::endl;
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "[FLOAT] Default constructor called" << std::endl;
+	fixed_point_number = roundf(number * (1 << 8));
 }
 
 Fixed::Fixed(const Fixed& other)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->fixed_point_number = other.getRawBits();
+	*this = other;
 }
 
-Fixed& Fixed::operator = (Fixed& other)
+Fixed& Fixed::operator = (const Fixed& other)
 {
 	Fixed&	ref_this = *this;
 
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->fixed_point_number = other.getRawBits();
+	this->setRawBits(other.getRawBits());
 	return (ref_this);
 }
 
@@ -56,20 +56,32 @@ Fixed::~Fixed()
 
 int		Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
-	return (fixed_point_number);
+	return (this->fixed_point_number >> 8);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	fixed_point_number = raw;
-	std::cout << "setRawBits Done" << std::endl;
+	fixed_point_number = raw << 8;
 }
 
-/*
-	fixed_obj 안의 고정소수점 값을 부동소수점으로 표현하여 cout 에 전달.
-*/
-std::ostream&	operator << (std::ostream& os, Fixed& fixed_obj)
+float	Fixed::toFloat(void) const
 {
+	float	temp;
+
+	temp = (float)this->fixed_point_number / (1 << 8);
+	return (temp);
+}
+
+int			Fixed::toInt(void) const
+{
+	int	temp;
+
+	temp = this->fixed_point_number >> 8;
+	return (temp);
+}
+
+std::ostream&	operator << (std::ostream& os, const Fixed& fixed_obj)
+{
+	os << fixed_obj.toFloat();
 	return (os);
 }

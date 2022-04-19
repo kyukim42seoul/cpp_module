@@ -33,7 +33,7 @@ public:
 	Fixed(const float number);
 	Fixed(const Fixed &other);
 	~Fixed();
-	Fixed&		operator = (Fixed& other);
+	Fixed&		operator = (const Fixed& other);
 	int			getRawBits(void) const;			//fixed_point ... 을 가지고 처음 주어진 int 형 비트를 반환
 	void		setRawBits(int const raw);		//raw 로 주어진 bit 를 고정 소수점 방식으로 fixed_point... 에 저장
 	float		toFloat(void) const;

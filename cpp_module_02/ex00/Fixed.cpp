@@ -42,11 +42,12 @@ Fixed::~Fixed()
 int		Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
-	return (fixed_point_number);
+	int	raw = fixed_point_number >> this->number_of_fractional_bits;
+	return (raw);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	fixed_point_number = raw;
 	std::cout << "setRawBits Done" << std::endl;
+	fixed_point_number = raw << this->number_of_fractional_bits;
 }
