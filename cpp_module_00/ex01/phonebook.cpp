@@ -112,5 +112,4 @@ void	PhoneBook::guide(int count)
 
 PhoneBook::~PhoneBook()
 {
-	;
 }

@@ -7,10 +7,9 @@ void	Zombie::announce(void)
 
 Zombie::Zombie(void)
 {
-	;
 }
 
-Zombie::Zombie(std::string name) : my_name(name)
+Zombie::Zombie(const std::string &name) : my_name(name)
 {
 	announce();
 }

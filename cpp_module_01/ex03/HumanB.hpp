@@ -14,7 +14,7 @@ public:
 	void	attack(void);
 	void	setWeapon(Weapon &weapon);
 	HumanB(void);
-	HumanB(std::string name_input);
+	HumanB(const std::string &name_input);
 	~HumanB(void);
 };
 

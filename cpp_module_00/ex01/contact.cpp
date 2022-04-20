@@ -2,11 +2,11 @@
 
 Contact::Contact(void)
 {
-};
+}
 
 Contact::~Contact()
 {
-};
+}
 
 void	Contact::set(std::string first, std::string last, std::string nick, std::string number, std::string secret)
 {
@@ -15,7 +15,7 @@ void	Contact::set(std::string first, std::string last, std::string nick, std::st
 	nick_name = nick;
 	phone_number = number;
 	darkest_secret = secret;
-};
+}
 
 void	Contact::show_summary(int index)
 {

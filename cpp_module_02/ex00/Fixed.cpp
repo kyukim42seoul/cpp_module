@@ -34,7 +34,7 @@ Fixed& Fixed::operator = (Fixed& other)
 	return (ref_this);
 }
 
-Fixed::~Fixed()
+Fixed::~Fixed(void)
 {
 	std::cout << "Destructor called" << std::endl;
 }

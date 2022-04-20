@@ -1,5 +1,23 @@
 # cpp_module
 
+진행상황
+	01-03까지 완료
+
+전체 개선필요
+
+변경이 없는 경우는 아래와 같이 수정
+	const std::string &name
+함수 내에서 변경이 없는 경우는 함수 선언 가장 뒤에 const 로 외부의 변경을 막아줄 것
+	int	getRawBits(void) const;
+
+스타일 변경
+function(void)
+{
+}
+
+--> funtion(void) {}
+
+
 01-04 : 테스트 추가
 01-05 : 진행 중... 함수 포인터 / 맵 공부 중
 01-05 : Harl 의 각 레벨에서 나오는 대사가 각 상황(debug, info, warning, error)에서만 나와야 하는가?

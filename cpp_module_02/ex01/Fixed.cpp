@@ -45,7 +45,9 @@ Fixed& Fixed::operator = (const Fixed& other)
 	Fixed&	ref_this = *this;
 
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->setRawBits(other.getRawBits());
+	std::cout << "Test : " << other << std::endl;
+	ref_this.setRawBits(other.getRawBits());
+	std::cout << "Test 2 : " << ref_this << std::endl;
 	return (ref_this);
 }
 
@@ -56,12 +58,12 @@ Fixed::~Fixed()
 
 int		Fixed::getRawBits(void) const
 {
-	return (this->fixed_point_number >> 8);
+	return (this->fixed_point_number);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	fixed_point_number = raw << 8;
+	fixed_point_number = raw;
 }
 
 float	Fixed::toFloat(void) const

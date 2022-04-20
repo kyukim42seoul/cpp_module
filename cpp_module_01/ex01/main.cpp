@@ -2,10 +2,10 @@
 
 int	main(int argc, char *argv[])
 {
-	std::string s_input;
-	std::stringstream ss_input;
-	int	zombie_count;
-	Zombie	*horde;
+	std::string 		s_input;
+	std::stringstream	ss_input;
+	int					zombie_count;
+	Zombie				*horde;
 
 	if (argc > 2)
 	{

@@ -1,6 +1,6 @@
 NAME = Fight
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -W -Wall -Wextra -Werror -std=c++98 -pedantic
 OBJECTS = main.o \
 	Weapon.o \
 	HumanA.o \

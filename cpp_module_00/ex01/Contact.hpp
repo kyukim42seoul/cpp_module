@@ -1,7 +1,10 @@
 #ifndef __CONTACT_HPP__
 #define __CONTACT_HPP__
 
-#include "main.hpp"
+#include <iostream>
+#include <iomanip>
+#include <sstream>
+#include <string>
 
 class Contact
 {

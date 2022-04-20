@@ -12,14 +12,15 @@ private:
 	std::string	my_name;
 public:
 	void		announce(void);
-	void		set_name(std::string name);
+	void		set_name(const std::string &name);
 	void		set_number(int number);
 	int			get_number(void);
 	Zombie(void);
-	Zombie(std::string name);
+	Zombie(const std::string &name);
 	~Zombie(void);
 };
 
-Zombie*	zombieHorde(int N, std::string name);
+Zombie*	zombieHorde(int N, const std::string &name);
 void	test_zombieHorde(int zombie_count, Zombie *horde);
+
 #endif

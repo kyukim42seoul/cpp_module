@@ -1,18 +1,6 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: kyukim <kyukim@student.42seoul.kr>         +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/03/17 13:45:28 by kyukim            #+#    #+#              #
-#    Updated: 2022/04/06 14:45:41 by kyukim           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = megaphone
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -W -Wall -Wextra -Werror -std=c++98 -pedantic
 OBJECTS = megaphone.o
 
 all : $(NAME) clean
@@ -28,4 +16,9 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all clean fclean re
+test :
+	./megaphone "shhhhh... I think the students are asleep..."
+	./megaphone Damnit " ! " "Sorry students, I thought this thing was off."
+	./megaphone
+
+.PHONY : all clean fclean re test

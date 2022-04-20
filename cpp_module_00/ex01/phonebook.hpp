@@ -1,7 +1,9 @@
 #ifndef __PHONEBOOK_HPP__
 #define __PHONEBOOK_HPP__
 
-#include "main.hpp"
+#include <iostream>
+#include <sstream>
+#include <string>
 #include "Contact.hpp"
 #include "Util.hpp"
 
@@ -25,7 +27,7 @@ class PhoneBook
 		~PhoneBook();
 		void	get_cmd();
 		void	set_flag();
-		int		get_flag();	
+		int		get_flag();
 		void	clear_flag();
 		void	add();
 		void	search();
