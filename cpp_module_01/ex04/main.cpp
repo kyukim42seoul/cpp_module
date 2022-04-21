@@ -48,7 +48,7 @@ int	main(int argc, char *argv[])
 		buf += temp;
 		buf += '\n';
 	}
-	std::size_t location;
+	std::size_t location(0);
 	while (buf.find(target, location) != std::string::npos)
 	{
 		location = buf.find(target, location);

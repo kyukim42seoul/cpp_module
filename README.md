@@ -7,6 +7,7 @@
 
 변경이 없는 경우는 아래와 같이 수정
 	const std::string &name
+		이렇게 할 때 만약 name 을 밖에서 수정하면 같이 변할 수 있으므로 & 를 붙일지 여부를 고민할 때 생각할 것
 함수 내에서 변경이 없는 경우는 함수 선언 가장 뒤에 const 로 외부의 변경을 막아줄 것
 	int	getRawBits(void) const;
 
@@ -16,6 +17,8 @@ function(void)
 }
 
 --> funtion(void) {}
+
+
 
 
 01-04 : 테스트 추가

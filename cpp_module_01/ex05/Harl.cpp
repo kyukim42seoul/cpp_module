@@ -20,7 +20,7 @@ void	Harl::error(void)
 	std::cout << "It's error function" << std::endl;
 }
 
-void	Harl::complain(std::string level)
+void	Harl::complain(const std::string &level)
 {
 	std::string	level_preset[4];
 	void 		(Harl::*funcPtr[4])(void);
