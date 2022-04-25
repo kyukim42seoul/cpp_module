@@ -24,7 +24,7 @@ class PhoneBook
 		void	guide(int count);
 	public:
 		PhoneBook(void);
-		~PhoneBook();
+		~PhoneBook(void);
 		void	get_cmd();
 		void	set_flag();
 		int		get_flag();
