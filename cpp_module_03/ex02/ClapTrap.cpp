@@ -60,18 +60,18 @@ void		ClapTrap::showStatus(void)
 
 ClapTrap::ClapTrap(void)
 {
-	std::cout << "Default Constructor called" << std::endl;
+	std::cout << "Clap : Default Constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string& name) 
 : name(name), hit_points(10), energy_points(10), attack_damage(0)
 {
-	std::cout << "Overload Constructor called" << std::endl;
+	std::cout << "Clap : Overload Constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& origin)
 {
-	std::cout << "Copy Constructor called" << std::endl;
+	std::cout << "Clap : Copy Constructor called" << std::endl;
 	this->name = origin.name;
 	this->hit_points = origin.hit_points;
 	this->energy_points = origin.energy_points;
@@ -80,7 +80,7 @@ ClapTrap::ClapTrap(const ClapTrap& origin)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Default Destructor called" << std::endl;
+	std::cout << "Clap : Default Destructor called" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator = (ClapTrap& origin)

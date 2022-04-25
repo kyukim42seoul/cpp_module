@@ -1,9 +1,10 @@
-NAME = Serena
+NAME = Animals
 CXX = c++
 CXXFLAGS = -W -Wall -Wextra -Werror -std=c++98 -pedantic
 OBJECTS = main.o \
-		ClapTrap.o \
-		ScavTrap.o \
+		Animal.o \
+		Cat.o \
+		Dog.o \
 
 all : $(NAME) clean
 
