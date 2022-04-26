@@ -2,8 +2,8 @@
 
 int	main(void)
 {
-	FragTrap	kyukim("kyukim");
+	FragTrap	rohen("rohen");
 
-	kyukim.highFivesGuys();
+	rohen.highFivesGuys();
 	return (EXIT_SUCCESS);
 }

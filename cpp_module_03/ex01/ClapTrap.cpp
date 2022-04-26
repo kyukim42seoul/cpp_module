@@ -63,7 +63,7 @@ ClapTrap::ClapTrap(void)
 	std::cout << "Default Constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(const std::string& name) 
+ClapTrap::ClapTrap(const std::string& name)
 : name(name), hit_points(10), energy_points(10), attack_damage(0)
 {
 	std::cout << "Overload Constructor called" << std::endl;
@@ -83,14 +83,12 @@ ClapTrap::~ClapTrap()
 	std::cout << "Default Destructor called" << std::endl;
 }
 
-ClapTrap& ClapTrap::operator = (ClapTrap& origin)
+ClapTrap& ClapTrap::operator=(ClapTrap& origin)
 {
-	ClapTrap&	ref_this(*this);
-
 	this->name = origin.name;
 	this->hit_points = origin.hit_points;
 	this->energy_points = origin.energy_points;
 	this->attack_damage = origin.attack_damage;
 
-	return (ref_this);
+	return (*this);
 }

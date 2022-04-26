@@ -4,11 +4,6 @@
 #include <iostream>
 #include <string>
 
-/*
-	ClapTrap <name> attacks <target>, causing <damage> points of damage!
-	테스트도 구현해서 첨부할 것
-*/
-
 class ClapTrap
 {
 private:
@@ -27,7 +22,7 @@ public:
 	ClapTrap(const ClapTrap& origin);
 	ClapTrap(const std::string& name);
 	~ClapTrap();
-	ClapTrap& operator = (ClapTrap& origin);
+	ClapTrap& operator=(ClapTrap& origin);
 };
 
 #endif

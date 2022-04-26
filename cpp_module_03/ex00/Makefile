@@ -1,4 +1,4 @@
-NAME = Traps
+NAME = ClapTrap
 CXX = c++
 CXXFLAGS = -W -Wall -Wextra -Werror -std=c++98 -pedantic
 OBJECTS = main.o \

@@ -10,5 +10,9 @@ int	main(void)
 	serena.showStatus();
 	serena.guardGate();
 
+	ScavTrap kenya("kenya");
+	kenya = serena;
+	kenya.showStatus();
+
 	return (EXIT_SUCCESS);
 }

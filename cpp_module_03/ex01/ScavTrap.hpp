@@ -7,7 +7,6 @@ class ClapTrap;
 class ScavTrap : public ClapTrap
 {
 private:
-
 public:
 	void	guardGate(void);
 	ScavTrap(void);
