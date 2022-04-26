@@ -54,10 +54,11 @@ int	main(int argc, char *argv[])
 		location = buf.find(target, location);
 		buf = buf.substr(0, location) + change + buf.substr(location + target.length(), buf.length());
 		std::cout << "result : " << buf << std::endl;
-		location++;
+		location += change.length();
 	}
 	std::string		replace_name(argv[1]);
-	std::ofstream	fout(replace_name + ".replace");
+	replace_name += ".replace";
+	std::ofstream	fout(replace_name.c_str());
 	fout << buf;
 	return (EXIT_SUCCESS);
 }

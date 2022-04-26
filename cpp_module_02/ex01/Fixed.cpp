@@ -1,27 +1,10 @@
 #include "Fixed.hpp"
 
-/* 연산자 오버로딩 참고
-Contact& Contact::operator = (Contact& other)
-{
-	Contact&	ref_this = *this;
-
-	this->first_name = other.first_name;
-	this->last_name = other.last_name;
-	this->nick_name = other.nick_name;
-	this->phone_number = other.phone_number;
-	this->darkest_secret = other.darkest_secret;
-	return (ref_this);
-}
-*/
-
 Fixed::Fixed(void) : fixed_point_number(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-/*
-	It converts it to the corresponding fixed-point value. The fractional bits value is initialized to 8 like in exercise 00.
-*/
 Fixed::Fixed(const int number)
 {
 	std::cout << "[INT] Default constructor called" << std::endl;
@@ -40,14 +23,12 @@ Fixed::Fixed(const Fixed& other)
 	*this = other;
 }
 
-Fixed& Fixed::operator = (const Fixed& other)
+Fixed& Fixed::operator=(const Fixed& other)
 {
 	Fixed&	ref_this = *this;
 
 	std::cout << "Copy assignment operator called" << std::endl;
-	std::cout << "Test : " << other << std::endl;
 	ref_this.setRawBits(other.getRawBits());
-	std::cout << "Test 2 : " << ref_this << std::endl;
 	return (ref_this);
 }
 
@@ -82,7 +63,7 @@ int			Fixed::toInt(void) const
 	return (temp);
 }
 
-std::ostream&	operator << (std::ostream& os, const Fixed& fixed_obj)
+std::ostream&	operator<<(std::ostream& os, const Fixed& fixed_obj)
 {
 	os << fixed_obj.toFloat();
 	return (os);

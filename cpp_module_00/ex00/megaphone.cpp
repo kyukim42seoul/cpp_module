@@ -6,7 +6,7 @@
 /*   By: kyukim <kyukim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:54:32 by kyukim            #+#    #+#             */
-/*   Updated: 2022/04/06 14:35:38 by kyukim           ###   ########.fr       */
+/*   Updated: 2022/04/25 18:52:41 by kyukim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class megaphone
 		std::string	noise;
 	public:
 		megaphone();
-		void	basic_noise();
+		void		basic_noise();
 		std::string	make_louder(std::string message);
 };
 

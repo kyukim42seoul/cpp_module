@@ -23,7 +23,7 @@ void	Harl::error(void)
 void	Harl::complain(const std::string &level)
 {
 	std::string	level_preset[4];
-	void 		(Harl::*funcPtr[4])(void);
+	void 		(Harl::*funcPtr[5])(void);
 
 	funcPtr[0] = &Harl::debug;
 	funcPtr[1] = &Harl::info;
@@ -34,15 +34,20 @@ void	Harl::complain(const std::string &level)
 	level_preset[2] = "WARNING";
 	level_preset[3] = "ERROR";
 	int	index(0);
-	while (index < 4 && level_preset[index] != level)
+	while (level_preset[index] != level && index < 5)
 		index++;
 	switch (index)
 	{
-	case 4:
+	case 5:
 		std::cout << "[ERR]There is no match level" << std::endl;
 		break;
 	default:
-		(this->*funcPtr[index])();
+		int	match_level(index);
+		while (match_level < 4)
+		{
+			(this->*funcPtr[match_level])();
+			match_level++;
+		}
 		break;
 	}
 }

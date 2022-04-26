@@ -1,19 +1,5 @@
 #include "Fixed.hpp"
 
-/* 연산자 오버로딩 참고
-Contact& Contact::operator = (Contact& other)
-{
-	Contact&	ref_this = *this;
-
-	this->first_name = other.first_name;
-	this->last_name = other.last_name;
-	this->nick_name = other.nick_name;
-	this->phone_number = other.phone_number;
-	this->darkest_secret = other.darkest_secret;
-	return (ref_this);
-}
-*/
-
 Fixed::Fixed(void) : fixed_point_number(0)
 {
 	std::cout << "Default constructor called" << std::endl;
@@ -25,7 +11,7 @@ Fixed::Fixed(const Fixed& other)
 	this->fixed_point_number = other.getRawBits();
 }
 
-Fixed& Fixed::operator = (Fixed& other)
+Fixed& Fixed::operator=(Fixed& other)
 {
 	Fixed&	ref_this = *this;
 
