@@ -7,14 +7,25 @@ void	ScavTrap::guardGate(void)
 
 ScavTrap::ScavTrap(void)
 {
-	set_default(100, 50, 20);
 	std::cout << "Scav : Defualt Constructor Called" << std::endl;
+	set_default(100, 50, 20);
+}
+
+ScavTrap::ScavTrap(const ScavTrap& origin)
+{
+	*this = origin;
 }
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
-	set_default(100, 50, 20);
 	std::cout << "Scav : Overloaded Constructor Called" << std::endl;
+	set_default(100, 50, 20);
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& origin)
+{
+	ClapTrap::operator=(origin);
+	return (*this);
 }
 
 ScavTrap::~ScavTrap(void)

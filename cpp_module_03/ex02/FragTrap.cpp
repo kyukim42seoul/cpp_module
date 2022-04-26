@@ -16,7 +16,18 @@ FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 	set_default(100, 100, 30);
 }
 
+FragTrap::FragTrap(const FragTrap& origin)
+{
+	*this = origin;
+}
+
 FragTrap::~FragTrap(void)
 {
 	std::cout << "Frag : Destructor Called" << std::endl;
+}
+
+FragTrap& FragTrap::operator=(const FragTrap& origin)
+{
+	ClapTrap::operator=(origin);
+	return (*this);
 }

@@ -22,7 +22,7 @@ public:
 	ClapTrap(const ClapTrap& origin);
 	ClapTrap(const std::string& name);
 	~ClapTrap();
-	ClapTrap& operator=(ClapTrap& origin);
+	ClapTrap& operator=(const ClapTrap& origin);
 };
 
 #endif

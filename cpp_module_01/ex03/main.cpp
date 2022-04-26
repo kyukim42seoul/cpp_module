@@ -14,7 +14,6 @@ int	main()
 	{
 		Weapon	club = Weapon("curde spiked club");
 
-
 		HumanB	jim("Jim");
 		jim.setWeapon(club);
 		jim.attack();

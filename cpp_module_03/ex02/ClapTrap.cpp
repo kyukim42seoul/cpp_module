@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"
 
-void		ClapTrap::set_default(int hit, int energy, int attack)
+void	ClapTrap::set_default(int hit, int energy, int attack)
 {
 	hit_points = hit;
 	energy_points = energy;
@@ -9,15 +9,15 @@ void		ClapTrap::set_default(int hit, int energy, int attack)
 
 void	ClapTrap::attack(const std::string& target)
 {
-	if (energy_points == 0)
+	switch (energy_points)
 	{
+	case 0:
 		std::cout << name << " is tired" << std::endl;
-		return ;
-	}
-	else
-	{
+		break ;
+	default:
 		std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << attack_damage << " points of damage!" << std::endl;
 		energy_points--;
+		break ;
 	}
 }
 
@@ -50,7 +50,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	}
 }
 
-void		ClapTrap::showStatus(void)
+void	ClapTrap::showStatus(void)
 {
 	std::cout << "Name : " << name << std::endl;
 	std::cout << "HitPoints : " << hit_points << std::endl;
@@ -60,18 +60,18 @@ void		ClapTrap::showStatus(void)
 
 ClapTrap::ClapTrap(void)
 {
-	std::cout << "Clap : Default Constructor called" << std::endl;
+	std::cout << "Default Constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(const std::string& name) 
+ClapTrap::ClapTrap(const std::string& name)
 : name(name), hit_points(10), energy_points(10), attack_damage(0)
 {
-	std::cout << "Clap : Overload Constructor called" << std::endl;
+	std::cout << "Overload Constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& origin)
 {
-	std::cout << "Clap : Copy Constructor called" << std::endl;
+	std::cout << "Copy Constructor called" << std::endl;
 	this->name = origin.name;
 	this->hit_points = origin.hit_points;
 	this->energy_points = origin.energy_points;
@@ -80,17 +80,15 @@ ClapTrap::ClapTrap(const ClapTrap& origin)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Clap : Default Destructor called" << std::endl;
+	std::cout << "Default Destructor called" << std::endl;
 }
 
-ClapTrap& ClapTrap::operator = (ClapTrap& origin)
+ClapTrap& ClapTrap::operator=(const ClapTrap& origin)
 {
-	ClapTrap&	ref_this(*this);
-
 	this->name = origin.name;
 	this->hit_points = origin.hit_points;
 	this->energy_points = origin.energy_points;
 	this->attack_damage = origin.attack_damage;
 
-	return (ref_this);
+	return (*this);
 }

@@ -19,16 +19,6 @@ void	ClapTrap::attack(const std::string& target)
 		energy_points--;
 		break ;
 	}
-/*	if (energy_points == 0)
-	{
-		std::cout << name << " is tired" << std::endl;
-		return ;
-	}
-	else
-	{
-		std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << attack_damage << " points of damage!" << std::endl;
-		energy_points--;
-	}*/
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
@@ -93,7 +83,7 @@ ClapTrap::~ClapTrap()
 	std::cout << "Default Destructor called" << std::endl;
 }
 
-ClapTrap& ClapTrap::operator=(ClapTrap& origin)
+ClapTrap& ClapTrap::operator=(const ClapTrap& origin)
 {
 	this->name = origin.name;
 	this->hit_points = origin.hit_points;

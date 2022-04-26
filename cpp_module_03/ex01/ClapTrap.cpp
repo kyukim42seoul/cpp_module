@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"
 
-void		ClapTrap::set_default(int hit, int energy, int attack)
+void	ClapTrap::set_default(int hit, int energy, int attack)
 {
 	hit_points = hit;
 	energy_points = energy;
@@ -9,15 +9,15 @@ void		ClapTrap::set_default(int hit, int energy, int attack)
 
 void	ClapTrap::attack(const std::string& target)
 {
-	if (energy_points == 0)
+	switch (energy_points)
 	{
+	case 0:
 		std::cout << name << " is tired" << std::endl;
-		return ;
-	}
-	else
-	{
+		break ;
+	default:
 		std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << attack_damage << " points of damage!" << std::endl;
 		energy_points--;
+		break ;
 	}
 }
 
@@ -50,7 +50,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	}
 }
 
-void		ClapTrap::showStatus(void)
+void	ClapTrap::showStatus(void)
 {
 	std::cout << "Name : " << name << std::endl;
 	std::cout << "HitPoints : " << hit_points << std::endl;
@@ -83,7 +83,7 @@ ClapTrap::~ClapTrap()
 	std::cout << "Default Destructor called" << std::endl;
 }
 
-ClapTrap& ClapTrap::operator=(ClapTrap& origin)
+ClapTrap& ClapTrap::operator=(const ClapTrap& origin)
 {
 	this->name = origin.name;
 	this->hit_points = origin.hit_points;
