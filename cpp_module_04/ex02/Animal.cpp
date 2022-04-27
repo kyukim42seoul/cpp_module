@@ -1,10 +1,5 @@
 #include "Animal.hpp"
 
-void	Animal::makeSound(void)
-{
-	std::cout << "I don't know my sound..." << std::endl;
-}
-
 const std::string& Animal::getType(void)
 {
 	return (type);

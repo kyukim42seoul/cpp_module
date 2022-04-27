@@ -1,7 +1,7 @@
 # cpp_module
 
 해야 할 것
-	ScavTrap 이후로 복사생성자 작동하는지 확인
+	Module 04 완성
 
 진행상황
 	03-02까지 완료
