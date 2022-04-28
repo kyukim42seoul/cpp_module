@@ -2,23 +2,23 @@
 
 const std::string&	Weapon::getType(void) const
 {
-	const std::string	&ref_type(type);
+	const std::string	&typeREF(_type);
 
-	return (ref_type);
+	return (typeREF);
 }
 
-void	Weapon::setType(const std::string &new_type)
+void	Weapon::setType(const std::string &type)
 {
-	type = new_type;
+	_type = type;
 }
 
 Weapon::Weapon(void)
 {
 }
 
-Weapon::Weapon(const std::string &type_input)
+Weapon::Weapon(const std::string &type)
 {
-	setType(type_input);
+	setType(type);
 }
 
 Weapon::~Weapon()

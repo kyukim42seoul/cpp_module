@@ -7,15 +7,15 @@ int	main(int argc, char *argv[])
 	int					zombie_count;
 	Zombie				*horde;
 
-	if (argc > 2)
+	if (argc != 2)
 	{
-		std::cout << "Too many arguments" << std::endl;
+		std::cout << "Invalid number of arguments" << std::endl;
 		return (EXIT_FAILURE);
 	}
 	s_input = argv[1];
 	ss_input.str(s_input);
 	ss_input >> zombie_count;
-	horde = zombieHorde(zombie_count, "heaps");
+	horde = zombieHorde(zombie_count, "heap_zombie");
 	test_zombieHorde(zombie_count, horde);
 	delete[] horde;
 	return (EXIT_SUCCESS);

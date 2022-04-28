@@ -2,15 +2,15 @@
 
 void	HumanB::attack(void)
 {
-	std::cout << name << " attacks with their " << my_weapon->getType() << std::endl;
+	std::cout << _name << " attacks with their " << _my_weapon->getType() << std::endl;
 }
 
 void	HumanB::setWeapon(Weapon &weapon)
 {
-	my_weapon = &weapon;
+	_my_weapon = &weapon;
 }
 
-HumanB::HumanB(const std::string &name_input) : my_weapon(NULL), name(name_input)
+HumanB::HumanB(const std::string &name) : _my_weapon(NULL), _name(name)
 {
 }
 

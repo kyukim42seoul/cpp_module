@@ -1,23 +1,14 @@
 #include "Harl.hpp"
 
-int	main()
+int	main(int argc, char *argv[])
 {
-	Harl	tester;
+	Harl	harl_filter;
 
-	std::cout << "Debug" << std::endl;
-	tester.complain("DEBUG");
-	std::cout << "Info" << std::endl;
-	tester.complain("INFO");
-	std::cout << "Warning" << std::endl;
-	tester.complain("WARNING");
-	std::cout << "Error" << std::endl;
-	tester.complain("ERROR");
-	std::cout << "Invalid" << std::endl;
-	tester.complain("AAA");
-	std::cout << "Debug" << std::endl;
-	tester.complain("DEBUG");
-	std::cout << "Empty" << std::endl;
-	tester.complain("");
-	std::cout << "END" << std::endl;
+	if (argc != 2)
+	{
+		std::cout << "[ERR] incorrect number of arguments" << std::endl;
+		return (EXIT_FAILURE);
+	}
+	harl_filter.complain(argv[1]);
 	return (EXIT_SUCCESS);
 }

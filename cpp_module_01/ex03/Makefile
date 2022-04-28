@@ -1,12 +1,12 @@
 NAME = Fight
 CXX = c++
-CXXFLAGS = -W -Wall -Wextra -Werror -std=c++98 -pedantic
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJECTS = main.o \
 	Weapon.o \
 	HumanA.o \
 	HumanB.o \
 
-all : $(NAME) clean
+all : $(NAME)
 
 $(NAME) : $(OBJECTS)
 	$(CXX) -o $(NAME) $(CXXFLAGS) $(OBJECTS)

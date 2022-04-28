@@ -1,15 +1,15 @@
 #include "Zombie.hpp"
 
-Zombie*	zombieHorde(int N, const std::string &name)
+Zombie*	zombieHorde(int zombie_count, std::string name)
 {
 	Zombie	*horde_zombie;
 
-	horde_zombie = new Zombie[N];
+	horde_zombie = new Zombie[zombie_count];
 	std::cout << "zombieHorde : horde_zombie allocated" << std::endl;
-	for (int index = 0; index < N; index++)
+	for (int index = 0; index < zombie_count; index++)
 	{
-		horde_zombie[index].set_number(index);
 		horde_zombie[index].set_name(name);
+		horde_zombie[index].set_number(index);
 	}
 	return (horde_zombie);
 }

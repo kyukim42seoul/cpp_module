@@ -20,7 +20,7 @@ public:
 	~Zombie(void);
 };
 
-Zombie*	zombieHorde(int N, const std::string &name);
+Zombie*	zombieHorde(int zombie_count, std::string name);
 void	test_zombieHorde(int zombie_count, Zombie *horde);
 
 #endif

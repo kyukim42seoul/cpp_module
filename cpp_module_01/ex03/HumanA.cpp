@@ -2,10 +2,10 @@
 
 void	HumanA::attack(void)
 {
-	std::cout << name << " attacks with their " << my_weapon.getType() << std::endl;
+	std::cout << _name << " attacks with their " << _my_weapon.getType() << std::endl;
 }
 
-HumanA::HumanA(const std::string &name_input, Weapon &weapon) : my_weapon(weapon), name(name_input)
+HumanA::HumanA(const std::string &name, Weapon &weapon) : _my_weapon(weapon), _name(name)
 {
 }
 
