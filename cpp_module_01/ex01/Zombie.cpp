@@ -2,34 +2,34 @@
 
 void	Zombie::announce(void)
 {
-	std::cout << my_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-void	Zombie::set_name(const std::string &name)
+void	Zombie::setNumber(int number)
 {
-	my_name = name;
+	this->number = number;
 }
 
-void	Zombie::set_number(int number)
+int		Zombie::getNumber(void)
 {
-	my_number = number;
+	return (number);
 }
 
-int		Zombie::get_number(void)
+void	Zombie::setName(std::string name)
 {
-	return (my_number);
+	this->name = name;
 }
 
 Zombie::Zombie(void)
 {
 }
 
-Zombie::Zombie(const std::string &name) : my_name(name)
+Zombie::Zombie(std::string name) : name(name)
 {
 	announce();
 }
 
 Zombie::~Zombie(void)
 {
-	std::cout << my_name << " is gone..." << std::endl;
+	std::cout << name << " is gone..." << std::endl;
 }

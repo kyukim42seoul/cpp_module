@@ -1,24 +1,23 @@
 #include "Zombie.hpp"
 
-Zombie*	zombieHorde(int zombie_count, std::string name)
+Zombie*	zombieHorde(int N, std::string name)
 {
 	Zombie	*horde_zombie;
 
-	horde_zombie = new Zombie[zombie_count];
-	std::cout << "zombieHorde : horde_zombie allocated" << std::endl;
-	for (int index = 0; index < zombie_count; index++)
+	horde_zombie = new Zombie[N];
+	for (int index = 0; index < N; index++)
 	{
-		horde_zombie[index].set_name(name);
-		horde_zombie[index].set_number(index);
+		horde_zombie[index].setName(name);
+		horde_zombie[index].setNumber(index);
 	}
 	return (horde_zombie);
 }
 
-void	test_zombieHorde(int zombie_count, Zombie *horde)
+void	testZombies(int N, Zombie *zombieHorde)
 {
-	for (int index = 0; index < zombie_count; index++)
+	for (int index = 0; index < N; index++)
 	{
-		std::cout << horde[index].get_number() << ' ';
-		horde[index].announce();
+		std::cout << zombieHorde[index].getNumber() << " : ";
+		zombieHorde[index].announce();
 	}
 }

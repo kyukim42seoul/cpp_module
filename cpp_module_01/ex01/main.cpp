@@ -15,8 +15,8 @@ int	main(int argc, char *argv[])
 	s_input = argv[1];
 	ss_input.str(s_input);
 	ss_input >> zombie_count;
-	horde = zombieHorde(zombie_count, "heap_zombie");
-	test_zombieHorde(zombie_count, horde);
+	horde = zombieHorde(zombie_count, "Heaps");
+	testZombies(zombie_count, horde);
 	delete[] horde;
 	return (EXIT_SUCCESS);
 }

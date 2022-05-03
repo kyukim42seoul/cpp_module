@@ -15,7 +15,12 @@ int	main()
 		Weapon	club = Weapon("curde spiked club");
 
 		HumanB	jim("Jim");
+		std::cout << "-----before Set-----" << std::endl;
+		jim.getWeapon();
 		jim.setWeapon(club);
+		std::cout << "-----after Set-----" << std::endl;
+		jim.getWeapon();
+		std::cout << "-----Check Done-----" << std::endl;
 		jim.attack();
 		club.setType("some other type of club");
 		jim.attack();

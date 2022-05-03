@@ -8,19 +8,19 @@
 class Zombie
 {
 private:
-	int			my_number;
-	std::string	my_name;
+	int			number;
+	std::string	name;
 public:
 	void		announce(void);
-	void		set_name(const std::string &name);
-	void		set_number(int number);
-	int			get_number(void);
+	void		setNumber(int number);
+	int			getNumber(void);
+	void		setName(std::string name);
 	Zombie(void);
-	Zombie(const std::string &name);
+	Zombie(std::string name);
 	~Zombie(void);
 };
 
-Zombie*	zombieHorde(int zombie_count, std::string name);
-void	test_zombieHorde(int zombie_count, Zombie *horde);
+Zombie*	zombieHorde(int N, std::string name);
+void	testZombies(int N, Zombie *zombieHorde);
 
 #endif

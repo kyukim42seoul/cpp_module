@@ -13,6 +13,7 @@ private:
 public:
 	void	attack(void);
 	void	setWeapon(Weapon &weapon);
+	Weapon&	getWeapon(void);
 	HumanB(void);
 	HumanB(const std::string &name);
 	~HumanB(void);

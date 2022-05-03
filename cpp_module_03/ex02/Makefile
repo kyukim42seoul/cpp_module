@@ -1,11 +1,11 @@
 NAME = FragTrap
 CXX = c++
-CXXFLAGS = -W -Wall -Wextra -Werror -std=c++98 -pedantic
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJECTS = main.o \
 		ClapTrap.o \
 		FragTrap.o \
 
-all : $(NAME) clean
+all : $(NAME)
 
 $(NAME) : $(OBJECTS)
 	$(CXX) -o $(NAME) $(CXXFLAGS) $(OBJECTS)

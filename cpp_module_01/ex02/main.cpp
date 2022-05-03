@@ -8,11 +8,12 @@ int	main()
 	std::string		&stringREF(stringVAL);
 
 	stringPTR = &stringVAL;
+	std::cout << "-----Adress-----" << std::endl;
 	std::cout << &stringVAL << std::endl;
 	std::cout << stringPTR << std::endl;
 	std::cout << &stringREF << std::endl;
 
-	std::cout << "--------------------" << std::endl;
+	std::cout << "-----Value-----" << std::endl;
 
 	std::cout << stringVAL << std::endl;
 	std::cout << *stringPTR << std::endl;

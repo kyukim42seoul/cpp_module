@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <fstream>
 
 int	main(int argc, char *argv[])
@@ -9,7 +10,7 @@ int	main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	}
 	std::ifstream	fin(argv[1]);
-	if (fin.fail())
+	if (!fin.good())
 	{
 		std::cout << "[ERR] fail open filename" << std::endl;
 		fin.clear();
@@ -22,30 +23,32 @@ int	main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	}
 	std::string		change(argv[3]);
-	std::string		buf;
+	std::string		srcText;
 	while (!fin.eof())
 	{
-		std::string	temp;
-		std::getline(fin, temp);
-		buf += temp;
-		buf += '\n';
+		std::string	lineBuf;
+		std::getline(fin, lineBuf);
+		srcText += lineBuf;
+		srcText += '\n';
 	}
+	fin.close();
 	std::size_t location(0);
-	while (buf.find(target, location) != std::string::npos)
+	while (srcText.find(target, location) != std::string::npos)
 	{
-		location = buf.find(target, location);
-		buf = buf.substr(0, location) + change + buf.substr(location + target.length(), buf.length());
+		location = srcText.find(target, location);
+		srcText = srcText.substr(0, location) + change + srcText.substr(location + target.length(), srcText.length());
 		location += change.length();
 	}
 	std::string		replace_name(argv[1]);
 	replace_name += ".replace";
 	std::ofstream	fout(replace_name.c_str());
-	if (fout.fail())
+	if (!fout.good())
 	{
 		std::cout << "[ERR] fail fout file" << std::endl;
 		fout.clear();
 		return (EXIT_FAILURE);
 	}
-	fout << buf;
+	fout << srcText;
+	fout.close();
 	return (EXIT_SUCCESS);
 }
