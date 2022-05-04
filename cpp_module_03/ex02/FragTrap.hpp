@@ -12,8 +12,7 @@ public:
 	FragTrap(const FragTrap& origin);
 	FragTrap(const std::string& name);
 	~FragTrap(void);
-	FragTrap& operator=(const FragTrap& origin);
+	FragTrap& operator=(const FragTrap& other);
 };
-
 
 #endif

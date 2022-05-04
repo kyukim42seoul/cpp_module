@@ -1,5 +1,25 @@
 #include "Fixed.hpp"
 
+int		Fixed::getRawBits(void) const
+{
+	return (this->fixed_point_number);
+}
+
+void	Fixed::setRawBits(int const raw)
+{
+	fixed_point_number = raw;
+}
+
+float	Fixed::toFloat(void) const
+{
+	return ((float)this->fixed_point_number / (1 << 8));
+}
+
+int			Fixed::toInt(void) const
+{
+	return (this->fixed_point_number >> 8);
+}
+
 Fixed::Fixed(void) : fixed_point_number(0)
 {
 	std::cout << "Default constructor called" << std::endl;
@@ -25,11 +45,9 @@ Fixed::Fixed(const Fixed& other)
 
 Fixed& Fixed::operator=(const Fixed& other)
 {
-	Fixed&	ref_this = *this;
-
 	std::cout << "Copy assignment operator called" << std::endl;
-	ref_this.setRawBits(other.getRawBits());
-	return (ref_this);
+	this->setRawBits(other.getRawBits());
+	return (*this);
 }
 
 Fixed::~Fixed()
@@ -37,31 +55,6 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
-int		Fixed::getRawBits(void) const
-{
-	return (this->fixed_point_number);
-}
-
-void	Fixed::setRawBits(int const raw)
-{
-	fixed_point_number = raw;
-}
-
-float	Fixed::toFloat(void) const
-{
-	float	temp;
-
-	temp = (float)this->fixed_point_number / (1 << 8);
-	return (temp);
-}
-
-int			Fixed::toInt(void) const
-{
-	int	temp;
-
-	temp = this->fixed_point_number >> 8;
-	return (temp);
-}
 
 std::ostream&	operator<<(std::ostream& os, const Fixed& fixed_obj)
 {

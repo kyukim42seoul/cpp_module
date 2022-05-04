@@ -1,19 +1,5 @@
 #include "Fixed.hpp"
 
-/* 연산자 오버로딩 참고
-Contact& Contact::operator = (Contact& other)
-{
-	Contact&	ref_this = *this;
-
-	this->first_name = other.first_name;
-	this->last_name = other.last_name;
-	this->nick_name = other.nick_name;
-	this->phone_number = other.phone_number;
-	this->darkest_secret = other.darkest_secret;
-	return (ref_this);
-}
-*/
-
 Fixed::Fixed(void) : fixed_point_number(0)
 {
 	std::cout << "Default constructor called" << std::endl;
@@ -89,7 +75,7 @@ Fixed Fixed::operator/(const Fixed& other) const
 
 Fixed& Fixed::operator++(void)
 {
-	this->fixed_point_number = roundf((this->toFloat() + 1) * (1 << 8));
+	this->fixed_point_number++;
 	return (*this);
 }
 
@@ -104,7 +90,7 @@ Fixed Fixed::operator++(int)
 
 Fixed& Fixed::operator--(void)
 {
-	this->fixed_point_number = roundf((this->toFloat() - 1) * (1 << 8));
+	this->fixed_point_number--;
 	return (*this);
 }
 
@@ -119,71 +105,42 @@ Fixed Fixed::operator--(int)
 
 Fixed& Fixed::operator=(const Fixed& other)
 {
-	Fixed&	ref_this = *this;
-
 	std::cout << "Copy assignment operator called" << std::endl;
-	ref_this.setRawBits(other.getRawBits());
-	return (ref_this);
+	this->setRawBits(other.getRawBits());
+	return (*this);
 }
 
-Fixed& Fixed::min(Fixed& one, Fixed& two)
+Fixed& Fixed::min(Fixed& A, Fixed& B)
 {
-	int	compare_result = one < two;
+	if (A > B)
+		return (B);
+	else
+		return (A);
 
-	switch (compare_result)
-	{
-		case 1:
-			return one;
-		case 0:
-			return two;
-		default:
-			return two;
-	}
 }
 
-const Fixed& Fixed::min(const Fixed& one, const Fixed& two)
+const Fixed& Fixed::min(const Fixed& A, const Fixed& B)
 {
-	int	compare_result = one < two;
-
-	switch (compare_result)
-	{
-		case 1:
-			return one;
-		case 0:
-			return two;
-		default:
-			return one;
-	}
+	if (A > B)
+		return (B);
+	else
+		return (A);
 }
 
-Fixed& Fixed::max(Fixed& one, Fixed& two)
+Fixed& Fixed::max(Fixed& A, Fixed& B)
 {
-	int	compare_result = one > two;
-
-	switch (compare_result)
-	{
-		case 1:
-			return one;
-		case 0:
-			return two;
-		default:
-			return one;
-	}
+	if (A < B)
+		return (B);
+	else
+		return (A);
 }
 
-const Fixed& Fixed::max(const Fixed& one, const Fixed& two)
+const Fixed& Fixed::max(const Fixed& A, const Fixed& B)
 {
-	int	compare_result = one > two;
-
-	switch (compare_result)
-	{
-		case 1:
-			return one;
-		case 0:
-			return two;
-		default:
-			return one;
-	}
+	if (A < B)
+		return (B);
+	else
+		return (A);
 }
 
 int		Fixed::getRawBits(void) const
@@ -198,18 +155,12 @@ void	Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat(void) const
 {
-	float	temp;
-
-	temp = (float)this->fixed_point_number / (1 << 8);
-	return (temp);
+	return ((float)this->fixed_point_number / (1 << 8));
 }
 
 int			Fixed::toInt(void) const
 {
-	int	temp;
-
-	temp = this->fixed_point_number >> 8;
-	return (temp);
+	return (this->fixed_point_number >> 8);
 }
 
 std::ostream&	operator<<(std::ostream& os, const Fixed& fixed_obj)

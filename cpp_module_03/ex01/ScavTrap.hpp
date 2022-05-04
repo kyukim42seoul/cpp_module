@@ -12,7 +12,7 @@ public:
 	ScavTrap(const ScavTrap& origin);
 	ScavTrap(const std::string& name);
 	~ScavTrap(void);
-	ScavTrap& operator=(const ScavTrap& origin);
+	ScavTrap& operator=(const ScavTrap& other);
 };
 
 #endif

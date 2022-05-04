@@ -1,7 +1,8 @@
 #include "ClapTrap.hpp"
 
-void	ClapTrap::set_default(int hit, int energy, int attack)
+void	ClapTrap::set_default(unsigned int hit, unsigned int energy, unsigned int attack)
 {
+	max_hit_points = hit;
 	hit_points = hit;
 	energy_points = energy;
 	attack_damage = attack;
@@ -9,6 +10,11 @@ void	ClapTrap::set_default(int hit, int energy, int attack)
 
 void	ClapTrap::attack(const std::string& target)
 {
+	if (isBroken)
+	{
+		std::cout << "ClapTrap " << name << " is broken..." << std::endl;
+		return ;
+	}
 	switch (energy_points)
 	{
 	case 0:
@@ -23,10 +29,17 @@ void	ClapTrap::attack(const std::string& target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if ((int)amount > hit_points)
+	if (isBroken)
 	{
-		std::cout << "ClapTrap " << name << " takes " << amount << " damage!" << std::endl;
+		std::cout << "ClapTrap " << name << " takes 0 damage!" << std::endl;
+		std::cout << "ClapTrap " << name << " is broken..." << std::endl;
+		return ;
+	}
+	if (amount > hit_points)
+	{
+		std::cout << "ClapTrap " << name << " takes " << hit_points << " damage!" << std::endl;
 		hit_points = 0;
+		isBroken = true;
 	}
 	else
 	{
@@ -44,9 +57,18 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	}
 	else
 	{
-		std::cout << "ClapTrap " << name << " is repaired " << amount << " of damage!" << std::endl;
-		hit_points += amount;
+		if (hit_points + amount > max_hit_points)
+		{
+			std::cout << "ClapTrap " << name << " is repaired " << max_hit_points - hit_points << " of damage!" << std::endl;
+			hit_points = max_hit_points;
+		}
+		else
+		{
+			std::cout << "ClapTrap " << name << " is repaired " << amount << " of damage!" << std::endl;
+			hit_points += amount;
+		}
 		energy_points--;
+		isBroken = false;
 	}
 }
 
@@ -59,36 +81,37 @@ void	ClapTrap::showStatus(void)
 }
 
 ClapTrap::ClapTrap(void)
+: max_hit_points(0), hit_points(0), energy_points(0), attack_damage(0), isBroken(true)
 {
-	std::cout << "Default Constructor called" << std::endl;
+	std::cout << "ClapTrap Default Constructor" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string& name)
-: name(name), hit_points(10), energy_points(10), attack_damage(0)
+: name(name), max_hit_points(10), hit_points(10), energy_points(10), attack_damage(0), isBroken(false)
 {
-	std::cout << "Overload Constructor called" << std::endl;
+	std::cout << "ClapTrap Overload Constructor" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& origin)
 {
-	std::cout << "Copy Constructor called" << std::endl;
-	this->name = origin.name;
-	this->hit_points = origin.hit_points;
-	this->energy_points = origin.energy_points;
-	this->attack_damage = origin.attack_damage;
+	std::cout << "ClapTrap Copy Constructor" << std::endl;
+	*this = origin;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Default Destructor called" << std::endl;
+	std::cout << "ClapTrap " << name << " Default Destructor" << std::endl;
 }
 
-ClapTrap& ClapTrap::operator=(const ClapTrap& origin)
+ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
-	this->name = origin.name;
-	this->hit_points = origin.hit_points;
-	this->energy_points = origin.energy_points;
-	this->attack_damage = origin.attack_damage;
-
+	if (this == &other)
+		return (*this);
+	this->name = other.name;
+	this->max_hit_points = other.max_hit_points;
+	this->hit_points = other.hit_points;
+	this->energy_points = other.energy_points;
+	this->attack_damage = other.attack_damage;
+	this->isBroken = other.isBroken;
 	return (*this);
 }

@@ -2,7 +2,9 @@ NAME = Fixed
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJECTS = main.o \
-		Fixed.o \
+		Fixed.o
+TESTOBJECTS = test_main.o \
+		Fixed.o
 
 all : $(NAME)
 
@@ -17,4 +19,7 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all clean fclean re
+test : $(TESTOBJECTS)
+	$(CXX) -o $(NAME) $(CXXFLAGS) $(TESTOBJECTS)
+
+.PHONY : all clean fclean re test
