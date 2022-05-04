@@ -7,24 +7,24 @@ void	Dog::makeSound(void)
 
 Dog::Dog(void) : Animal()
 {
-	std::cout << "Dog : Default Constructor is called" << std::endl;
+	std::cout << "Dog : Default Constructor" << std::endl;
 	type = "Dog";
 }
 
 Dog::Dog(const Dog& origin)
 {
-	std::cout << "Dog : Copy Constructor called" << std::endl;
+	std::cout << "Dog : Copy Constructor" << std::endl;
 	*this = origin;
 }
 
 Dog::~Dog(void)
 {
-	std::cout << "Dog : Destructore is called" << std::endl;
+	std::cout << "Dog : Destructor" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& other)
 {
-	std::cout << "Dog : Operator= called" << std::endl;
+	std::cout << "Dog : Operator=" << std::endl;
 	Animal::operator=(other);
 	return (*this);
 }

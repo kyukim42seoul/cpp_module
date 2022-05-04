@@ -5,6 +5,25 @@ void	ScavTrap::guardGate(void)
 	std::cout << "ScavTrap " << name << " is Gate keeper mode now" << std::endl;
 }
 
+void	ScavTrap::attack(const std::string& target)
+{
+	if (isBroken)
+	{
+		std::cout << "ScavTrap " << name << " is broken..." << std::endl;
+		return ;
+	}
+	switch (energy_points)
+	{
+	case 0:
+		std::cout << name << " is tired" << std::endl;
+		break ;
+	default:
+		std::cout << "ScavTrap " << name << " attacks " << target << ", causing " << attack_damage << " points of damage!" << std::endl;
+		energy_points--;
+		break ;
+	}
+}
+
 ScavTrap::ScavTrap(void)
 {
 	std::cout << "ScavTrap Defualt Constructor" << std::endl;

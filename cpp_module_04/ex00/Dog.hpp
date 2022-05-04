@@ -5,8 +5,6 @@
 
 class Dog : public Animal
 {
-private:
-	
 public:
 	void	makeSound(void);
 	Dog(void);

@@ -6,7 +6,6 @@
 
 class ClapTrap
 {
-private:
 protected:
 	std::string		name;
 	unsigned int	max_hit_points;
@@ -16,10 +15,12 @@ protected:
 	bool			isBroken;
 	void			set_default(unsigned int hit, unsigned int energy, unsigned int attack);
 public:
-	void		attack(const std::string& target);
-	void		takeDamage(unsigned int amount);
-	void		beRepaired(unsigned int amount);
-	void		showStatus(void);
+	void			attack(const std::string& target);
+	unsigned int	getAttackDamage(void);
+	void			setAttackDamage(unsigned int damage);
+	void			takeDamage(unsigned int amount);
+	void			beRepaired(unsigned int amount);
+	void			showStatus(void);
 	ClapTrap(void);
 	ClapTrap(const ClapTrap& origin);
 	ClapTrap(const std::string& name);

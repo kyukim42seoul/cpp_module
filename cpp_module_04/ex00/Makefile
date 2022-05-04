@@ -5,6 +5,8 @@ OBJECTS = main.o \
 		Animal.o \
 		Cat.o \
 		Dog.o \
+		WrongAnimal.o \
+		WrongCat.o \
 
 all : $(NAME)
 

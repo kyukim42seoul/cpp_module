@@ -27,6 +27,16 @@ void	ClapTrap::attack(const std::string& target)
 	}
 }
 
+unsigned int	ClapTrap::getAttackDamage(void)
+{
+	return (attack_damage);
+}
+
+void			ClapTrap::setAttackDamage(unsigned int damage)
+{
+	attack_damage = damage;
+}
+
 void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (isBroken)
@@ -38,6 +48,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	if (amount > hit_points)
 	{
 		std::cout << "ClapTrap " << name << " takes " << hit_points << " damage!" << std::endl;
+		std::cout << "ClapTrap " << name << " is broken..." << std::endl;
 		hit_points = 0;
 		isBroken = true;
 	}
@@ -50,6 +61,11 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
+	if (isBroken)
+	{
+		std::cout << "ClapTrap " << name << " is broken..." << std::endl;
+		return ;
+	}
 	if (energy_points == 0)
 	{
 		std::cout << name << " is tired" << std::endl;
@@ -81,13 +97,13 @@ void	ClapTrap::showStatus(void)
 }
 
 ClapTrap::ClapTrap(void)
-: max_hit_points(0), hit_points(0), energy_points(0), attack_damage(0), isBroken(true)
+: max_hit_points(0u), hit_points(0u), energy_points(0u), attack_damage(0u), isBroken(true)
 {
 	std::cout << "ClapTrap Default Constructor" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string& name)
-: name(name), max_hit_points(10), hit_points(10), energy_points(10), attack_damage(0), isBroken(false)
+: name(name), max_hit_points(10u), hit_points(10u), energy_points(10u), attack_damage(0u), isBroken(false)
 {
 	std::cout << "ClapTrap Overload Constructor" << std::endl;
 }

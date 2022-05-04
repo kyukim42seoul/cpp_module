@@ -3,8 +3,6 @@
 int	main(void)
 {
 	std::cout << "\n----- ----- START ----- -----\n" << std::endl;
-
-
 	std::cout << "\n----- ----- OCCF ----- -----\n" << std::endl;
 	std::cout << "\n----- ----- Default Constructor ----- -----\n" << std::endl;
 
@@ -30,30 +28,28 @@ int	main(void)
 	std::cout << "\n----- ----- Attack ----- -----\n" << std::endl;
 
 	ClapTrap	rohan("rohan");
-	for (int count = 1; count < 12; count++)
+	ClapTrap	tom("tom");
+	rohan.showStatus();
+	tom.showStatus();
+	rohan.setAttackDamage(3);
+	for (int count = 1; count < 5; count++)
 	{
 		std::cout << count << " : ";
 		rohan.attack("Tom");
+		tom.takeDamage(rohan.getAttackDamage());
+		tom.showStatus();
 	}
-
+	rohan.showStatus();
 	std::cout << "\n----- ----- Repair ----- -----\n" << std::endl;
 
 	ClapTrap	mahan("mahan");
+	mahan.takeDamage(5);
 	for (int heal = 1; heal < 12; heal++)
 	{
 		std::cout << heal << " : ";
-		mahan.beRepaired(30);
+		mahan.beRepaired(3);
+		mahan.showStatus();
 	}
-
-	std::cout << "\n----- ----- Tank ----- -----\n" << std::endl;
-
-	ClapTrap	punchingBag("punchingBag");
-	for (int tank = 1; tank < 12; tank++)
-	{
-		std::cout << tank << " : ";
-		punchingBag.takeDamage(30);
-	}
-
 	std::cout << "\n----- ----- Done ----- -----\n" << std::endl;
 
 	return (EXIT_SUCCESS);
