@@ -18,6 +18,11 @@ void	Cat::isThinking(void)
 	brain->remeber();
 }
 
+Brain&	Cat::getBrain(void)
+{
+	return (*brain);
+}
+
 Cat::Cat(void) : Animal()
 {
 	std::cout << "Cat : Default Constructor is called" << std::endl;
@@ -28,6 +33,7 @@ Cat::Cat(void) : Animal()
 Cat::Cat(const Cat& origin)
 {
 	std::cout << "Cat : Copy Constructor called" << std::endl;
+	brain = new Brain;
 	*this = origin;
 }
 
@@ -46,6 +52,8 @@ Cat::~Cat(void)
 Cat& Cat::operator=(const Cat& other)
 {
 	std::cout << "Cat : Operator= called" << std::endl;
+	if (this == &other)
+		return (*this);
 	Animal::operator=(other);
 	delete brain;
 	this->brain = new Brain(*other.brain);

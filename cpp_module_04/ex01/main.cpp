@@ -1,63 +1,108 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include <sstream>
 
-int	main()
+int	main(void)
 {
-	Cat		*cat_a = new Cat("Fish");
-	Cat		*cat_b = new Cat("Meat");
-	Dog		*dog_a = new Dog("Joe");
-	Dog		*dog_b = new Dog("Andy");
-	Animal	flocks[4];
+	std::cout << "\n----- ----- START ----- -----\n" << std::endl;
 
-	flocks[0] = *cat_a;
-	flocks[1] = *cat_b;
-	flocks[2] = *dog_a;
-	flocks[3] = *dog_b;
+	const Animal*	j = new Dog();
+	const Animal*	i = new Cat();
 
-	std::cout << "cat_a : ";
-	cat_a->isThinking();
-	std::cout << "cat_b : ";
-	cat_b->isThinking();
-	std::cout << "dog_a : ";
-	dog_a->isThinking();
-	std::cout << "dog_b : ";
-	dog_b->isThinking();
+	delete j;
+	delete i;
 
-	std::cout << "-----Copy Test-----" << std::endl;
+	std::cout << "\n----- Let's think about... -----\n" << std::endl;
 
-	Cat		copy_cat_a;
-	Cat		copy_cat_b;
-	Dog		copy_dog_a;
-	Dog		copy_dog_b;
+	std::string* ideas = new std::string[100];
+	std::string* replaced_ideas = new std::string[100];
 
-	copy_cat_a = *cat_a;
-	copy_cat_b = *cat_b;
-	copy_dog_a = *dog_a;
-	copy_dog_b = *dog_b;
+	std::cout << "What does Cat or Dog think?" << std::endl;
+	for (int count = 0; !std::cin.eof() && count < 100; count++)
+	{
+		std::getline(std::cin, ideas[count]);
+		if (ideas[count].empty())
+		{
+			std::cout << "(Original Ideas Set Complete)" << std::endl;
+			break ;
+		}
+	}
+	std::cout << "10 minutes later...\nWhat does Cat or Dog think now?" << std::endl;
+	for (int index = 0; !std::cin.eof() && index < 100; index++)
+	{
+		std::getline(std::cin, replaced_ideas[index]);
+		if (replaced_ideas[index].empty())
+		{
+			std::cout << "(Replaced Ideas Set Complete)" << std::endl;
+			break ;
+		}
+	}
 
-	copy_cat_a.thinkFood("More fishes");
-	copy_cat_b.thinkFood("More Meat");
-	copy_dog_a.thinkMaster("Emily");
-	copy_dog_b.thinkMaster("Helena");
+	std::cout << "\n----- OCCF Test Cat -----\n" << std::endl;
 
-	std::cout << "-----Origin Think-----" <<std::endl;
-	cat_a->isThinking();
-	cat_b->isThinking();
-	dog_a->isThinking();
-	dog_b->isThinking();
+	Cat	A;
+	A.getBrain().setIdeas(ideas);
 
-	std::cout << "-----Copy Think-----" <<std::endl;
-	copy_cat_a.isThinking();
-	copy_cat_b.isThinking();
-	copy_dog_a.isThinking();
-	copy_dog_b.isThinking();
+	Cat	B(A);
+	Cat	C;
 
-	delete cat_a;
-	delete cat_b;
-	delete dog_a;
-	delete dog_b;
-	std::cout << "-----Heap Class Destruct Over-----" <<std::endl;
+	C = B;
+
+	std::cout << "\n----- A Brain -----\n" << std::endl;
+	A.getBrain().remeber();
+	std::cout << "\n----- C Brain -----\n" << std::endl;
+	C.getBrain().remeber();
+
+	C.getBrain().setIdeas(replaced_ideas);
+
+	std::cout << "\n----- After A Brain -----\n" << std::endl;
+	A.getBrain().remeber();
+	std::cout << "\n----- After C Brain -----\n" << std::endl;
+	C.getBrain().remeber();
+
+	std::cout << "\n----- OCCF Test Dog -----\n" << std::endl;
+
+	Dog	D;
+	D.getBrain().setIdeas(ideas);
+	delete[] ideas;
+
+	Dog	E(D);
+	Dog	F;
+
+	F = E;
+
+	std::cout << "\n----- D Brain -----\n" << std::endl;
+	D.getBrain().remeber();
+	std::cout << "\n----- F Brain -----\n" << std::endl;
+	F.getBrain().remeber();
+
+	F.getBrain().setIdeas(replaced_ideas);
+	delete[] replaced_ideas;
+
+	std::cout << "\n----- After D Brain -----\n" << std::endl;
+	D.getBrain().remeber();
+	std::cout << "\n----- After F Brain -----\n" << std::endl;
+	F.getBrain().remeber();
+
+	std::cout << "\n----- Animal Array with Half Dogs & Half Cats -----\n" << std::endl;
+	
+	Animal*	flock[10];
+
+	std::cout << "\n----- Alloc -----\n" << std::endl;
+
+	for (int number = 0; number < 10; number++)
+	{
+		if (number % 2)
+			flock[number] = new Dog();
+		else
+			flock[number] = new Cat();
+	}
+
+	std::cout << "\n----- Free -----\n" << std::endl;
+
+	for (int delCount = 0; delCount < 10; delCount++)
+		delete flock[delCount];
+
+	std::cout << "\n----- Done -----\n" << std::endl;
 
 	return(EXIT_SUCCESS);
 }

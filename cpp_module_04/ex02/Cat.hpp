@@ -10,9 +10,10 @@ class Cat : public Animal
 private:
 	Brain*	brain;
 public:
-	virtual void	makeSound(void);
-	void			thinkFood(const std::string& food);
-	void			isThinking(void);
+	void	makeSound(void);
+	void	thinkFood(const std::string& food);
+	void	isThinking(void);
+	Brain&	getBrain(void);
 	Cat(void);
 	Cat(const Cat& origin);
 	Cat(const std::string& idea);

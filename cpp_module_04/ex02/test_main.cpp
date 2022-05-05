@@ -3,11 +3,7 @@
 
 int	main()
 {
-	Cat	cat_a;
-	Dog	dog_a;
-
-	cat_a.makeSound();
-	dog_a.makeSound();
+	Animal A;
 
 	return(EXIT_SUCCESS);
 }

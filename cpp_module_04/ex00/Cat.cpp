@@ -25,6 +25,8 @@ Cat::~Cat(void)
 Cat& Cat::operator=(const Cat& other)
 {
 	std::cout << "Cat : Operator=" << std::endl;
+	if (this == &other)
+		return (*this);
 	Animal::operator=(other);
 	return (*this);
 }

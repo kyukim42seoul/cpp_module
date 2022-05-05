@@ -13,6 +13,7 @@ public:
 	void	makeSound(void);
 	void	thinkMaster(const std::string& name);
 	void	isThinking(void);
+	Brain&	getBrain(void);
 	Dog(void);
 	Dog(const Dog& origin);
 	Dog(const std::string& idea);

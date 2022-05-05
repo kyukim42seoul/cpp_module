@@ -13,6 +13,7 @@ public:
 	void	makeSound(void);
 	void	thinkFood(const std::string& food);
 	void	isThinking(void);
+	Brain&	getBrain(void);
 	Cat(void);
 	Cat(const Cat& origin);
 	Cat(const std::string& idea);

@@ -2,13 +2,33 @@
 
 int	main()
 {
-	Bureaucrat	hoakin("hoakin");
-	hoakin.setGrade(15);
+	try
+	{
+		Bureaucrat	hoakin("hoakin", 0);
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	try
+	{
+		Bureaucrat	hoakin("hoakin", 151);
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	try
+	{
+		Bureaucrat	hoakin("hoakin", 150);
+		std::cout << hoakin << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
-	Bureaucrat	copy_hoakin(hoakin);
 
-	std::cout << hoakin << std::endl;
-	std::cout << copy_hoakin << std::endl;
 
 	return (EXIT_SUCCESS);
 }

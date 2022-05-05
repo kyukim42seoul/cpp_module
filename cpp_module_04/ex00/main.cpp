@@ -26,13 +26,21 @@ int	main()
 	delete j;
 
 	std::cout << "\n----- Wrong Test -----\n" << std::endl;
+	std::cout << "----- UpCasting -----\n" << std::endl;
 
-	WrongAnimal	*joy = new WrongCat();
+	WrongAnimal*	joy = new WrongCat();
 
 	std::cout << joy->getType() << std::endl;
 	joy->makeSound();
 
+	std::cout << "\n----- Normal -----\n" << std::endl;
+
+	WrongCat*	toy = new WrongCat();
+	std::cout << toy->getType() << std::endl;
+	toy->makeSound();
+
 	delete joy;
+	delete toy;
 
 	std::cout << "\n----- OCCF Test Animal -----\n" << std::endl;
 

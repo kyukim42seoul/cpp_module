@@ -25,6 +25,8 @@ Dog::~Dog(void)
 Dog& Dog::operator=(const Dog& other)
 {
 	std::cout << "Dog : Operator=" << std::endl;
+	if (this == &other)
+		return (*this);
 	Animal::operator=(other);
 	return (*this);
 }

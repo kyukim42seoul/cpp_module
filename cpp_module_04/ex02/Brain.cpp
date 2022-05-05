@@ -2,17 +2,22 @@
 
 void	Brain::think(const std::string& something)
 {
-	ideas[0] = something;
+	_ideas[0] = something;
 }
 
 void	Brain::remeber(void)
 {
-	int	count = 0;
-
-	while (!ideas[count].empty())
+	for (int count = 0; count < 100 && !_ideas[count].empty(); count++)
 	{
-		std::cout << ideas[count] << std::endl;
-		count++;
+		std::cout << _ideas[count] << std::endl;
+	}
+}
+
+void	Brain::setIdeas(std::string *ideas)
+{
+	for (int count = 0; !ideas[count].empty() && count < 100; count++)
+	{
+		_ideas[count] = ideas[count];
 	}
 }
 
@@ -28,7 +33,7 @@ Brain::Brain(const Brain& origin)
 
 Brain::Brain(const std::string& something)
 {
-	ideas[0] = something;
+	_ideas[0] = something;
 }
 
 Brain::~Brain(void)
@@ -39,18 +44,11 @@ Brain::~Brain(void)
 Brain& Brain::operator=(const Brain& other)
 {
 	std::cout << "Brain : Operator= called" << std::endl;
-	for (int count = 0; count < 100; count++)
+	if (this == &other)
+		return (*this);
+	for (int count = 0; !other._ideas[count].empty(); count++)
 	{
-		int temp;
-
-		temp = other.ideas[count].empty();
-		switch (temp)
-		{
-		case 1:
-			this->ideas[count] = other.ideas[count];
-		default:
-			;
-		}
+		this->_ideas[count] = other._ideas[count];
 	}
 	return (*this);
 }

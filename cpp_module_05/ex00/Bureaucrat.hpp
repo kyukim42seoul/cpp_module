@@ -1,6 +1,7 @@
 #ifndef __BUREAUCRAT_HPP__
 #define __BUREAUCRAT_HPP__
 
+#include <iostream>
 #include <string>
 #include <exception>
 
@@ -23,7 +24,7 @@ public:
 	int			getGrade(void) const;
 	Bureaucrat(void);
 	Bureaucrat(Bureaucrat& origin);
-	Bureaucrat(const std::string& name);
+	Bureaucrat(const std::string& name, int grade);
 	~Bureaucrat(void);
 	Bureaucrat& operator=(const Bureaucrat& other);
 };

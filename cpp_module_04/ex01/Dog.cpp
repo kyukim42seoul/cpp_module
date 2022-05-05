@@ -16,6 +16,11 @@ void	Dog::isThinking(void)
 	brain->remeber();
 }
 
+Brain&	Dog::getBrain(void)
+{
+	return (*brain);
+}
+
 Dog::Dog(void) : Animal()
 {
 	std::cout << "Dog : Default Constructor is called" << std::endl;
@@ -26,6 +31,7 @@ Dog::Dog(void) : Animal()
 Dog::Dog(const Dog& origin)
 {
 	std::cout << "Dog : Copy Constructor called" << std::endl;
+	brain = new Brain;
 	*this = origin;
 }
 
@@ -44,6 +50,8 @@ Dog::~Dog(void)
 Dog& Dog::operator=(const Dog& other)
 {
 	std::cout << "Dog : Operator= called" << std::endl;
+	if (this == &other)
+		return (*this);
 	Animal::operator=(other);
 	delete brain;
 	this->brain = new Brain(*other.brain);

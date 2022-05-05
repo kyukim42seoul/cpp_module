@@ -11,12 +11,21 @@ private:
 	const std::string	_name;
 	int					_grade;
 public:
+	class GradeTooHighException : public std::exception
+	{
+		virtual const char* what(void) const throw();
+	};
+	class GradeTooLowException : public std::exception
+	{
+		virtual const char* what(void) const throw();
+	};
 	void		setGrade(const int& grade);
 	std::string	getName(void) const;
 	int			getGrade(void) const;
+	void		signForm(Form& form);
 	Bureaucrat(void);
 	Bureaucrat(Bureaucrat& origin);
-	Bureaucrat(const std::string& name);
+	Bureaucrat(const std::string& name, int grade);
 	~Bureaucrat(void);
 	Bureaucrat& operator=(const Bureaucrat& other);
 };

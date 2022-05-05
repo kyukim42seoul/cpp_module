@@ -1,10 +1,10 @@
-NAME = Bureaucrat
+NAME = Form
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -W -Wall -Wextra -Werror -std=c++98 -pedantic
 OBJECTS = main.o \
 		Bureaucrat.o \
 
-all : $(NAME)
+all : $(NAME) clean
 
 $(NAME) : $(OBJECTS)
 	$(CXX) -o $(NAME) $(CXXFLAGS) $(OBJECTS)
