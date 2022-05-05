@@ -26,6 +26,7 @@ public:
 	void			increaseGrade(unsigned int amount);
 	void			decreaseGrade(unsigned int amount);
 	void			signForm(Form& form);
+	void			excuteForm(Form const & form);
 	Bureaucrat(void);
 	Bureaucrat(Bureaucrat& origin);
 	Bureaucrat(const std::string& name, int grade);

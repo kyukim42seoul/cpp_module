@@ -10,6 +10,11 @@ const char* Form::GradeTooLowException::what(void) const throw()
 	return ("[ Exception ][ Form ] GradeTooLow");
 }
 
+const char* Form::IsNotSigned::what(void) const throw()
+{
+	return ("[ Exception ][ Form ] IsNotSignedForm");
+}
+
 std::string	Form::getName(void) const
 {
 	return (_name);

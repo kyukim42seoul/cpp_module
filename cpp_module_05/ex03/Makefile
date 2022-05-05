@@ -1,9 +1,12 @@
-NAME = Form
+NAME = moreForm
 CXX = c++
 CXXFLAGS = -W -Wall -Wextra -Werror -std=c++98 -pedantic
 OBJECTS = main.o \
 		Bureaucrat.o \
 		Form.o \
+		ShrubberyCreationForm.o \
+		RobotomyRequestForm.o \
+		PresidentialPardonForm.o \
 
 all : $(NAME) clean
 

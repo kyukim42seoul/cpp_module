@@ -13,8 +13,8 @@ int	main(void)
 
 	std::cout << "\n----- Let's think about... -----\n" << std::endl;
 
-	std::string* ideas = new std::string[100];
-	std::string* replaced_ideas = new std::string[100];
+	std::string ideas[100];
+	std::string replaced_ideas[100];
 
 	std::cout << "What does Cat or Dog think?" << std::endl;
 	for (int count = 0; !std::cin.eof() && count < 100; count++)
@@ -63,7 +63,6 @@ int	main(void)
 
 	Dog	D;
 	D.getBrain().setIdeas(ideas);
-	delete[] ideas;
 
 	Dog	E(D);
 	Dog	F;
@@ -76,7 +75,6 @@ int	main(void)
 	F.getBrain().remeber();
 
 	F.getBrain().setIdeas(replaced_ideas);
-	delete[] replaced_ideas;
 
 	std::cout << "\n----- After D Brain -----\n" << std::endl;
 	D.getBrain().remeber();
@@ -84,7 +82,7 @@ int	main(void)
 	F.getBrain().remeber();
 
 	std::cout << "\n----- Animal Array with Half Dogs & Half Cats -----\n" << std::endl;
-	
+
 	Animal*	flock[10];
 
 	std::cout << "\n----- Alloc -----\n" << std::endl;
@@ -104,5 +102,6 @@ int	main(void)
 
 	std::cout << "\n----- Done -----\n" << std::endl;
 
+	system("leaks Animals");
 	return(EXIT_SUCCESS);
 }
