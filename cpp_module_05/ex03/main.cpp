@@ -1,6 +1,4 @@
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 #include <ctime>
 
 int	main()
@@ -11,37 +9,53 @@ int	main()
 	Bureaucrat	junior("junior", 150);
 	Bureaucrat	senior("senior", 30);
 	Bureaucrat	master("master", 1);
-	ShrubberyCreationForm	SA("home");
-	RobotomyRequestForm		RA("Jin");
-	PresidentialPardonForm	PA("Nao");
+	Intern		intern;
+	Form*	pSA;
+	Form*	pRA;
+	Form*	pPA;
+
+	std::cout << "\n----- ----- Make Forms ----- -----\n" << std::endl;
+
+	pSA = intern.makeForm("ShrubberyCreationForm", "home");
+	pRA = intern.makeForm("RobotomyRequestForm", "Jin");
+	pPA = intern.makeForm("PresidentialPardonForm", "Nao");
+
+	try
+	{
+		intern.makeForm("AAA", "aa");
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 
 	std::cout << "\n----- ----- Let's Sign ----- -----\n" << std::endl;
 
-	junior.signForm(SA);
-	junior.signForm(RA);
-	junior.signForm(PA);
-	senior.signForm(SA);
-	senior.signForm(RA);
-	senior.signForm(PA);
-	master.signForm(SA);
-	master.signForm(RA);
-	master.signForm(PA);
+	junior.signForm(*pSA);
+	junior.signForm(*pRA);
+	junior.signForm(*pPA);
+	senior.signForm(*pSA);
+	senior.signForm(*pRA);
+	senior.signForm(*pPA);
+	master.signForm(*pSA);
+	master.signForm(*pRA);
+	master.signForm(*pPA);
 
 	std::cout << "\n----- ----- Let's Excute ----- -----\n" << std::endl;
 
-	junior.excuteForm(SA);
-	junior.excuteForm(RA);
-	junior.excuteForm(PA);
-	senior.excuteForm(SA);
-	senior.excuteForm(RA);
-	senior.excuteForm(PA);
-	master.excuteForm(SA);
-	master.excuteForm(PA);
+	junior.excuteForm(*pSA);
+	junior.excuteForm(*pRA);
+	junior.excuteForm(*pPA);
+	senior.excuteForm(*pSA);
+	senior.excuteForm(*pRA);
+	senior.excuteForm(*pPA);
+	master.excuteForm(*pSA);
+	master.excuteForm(*pPA);
 
 	std::srand(std::time(NULL));
 	for (int count = 0; count < 10; count++)
 	{
-		master.excuteForm(RA);
+		master.excuteForm(*pRA);
 	}
 
 	std::cout << "\n----- ----- Done ----- -----\n" << std::endl;

@@ -99,10 +99,7 @@ Bureaucrat::~Bureaucrat(void)
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
 	if (this == &other)
-	{
-		std::cout << "Test" << std::endl;
 		return (*this);
-	}
 	this->_grade = other._grade;
 	return (*this);
 }
