@@ -4,21 +4,33 @@
 int	main()
 {
 	std::cout << "\n----- ----- START ----- -----\n" << std::endl;
+	std::cout << "\n----- ----- Basic Test ----- -----\n" << std::endl;
+
+	Intern	someRandomIntern;
+	Form*	rrf;
+
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+
+	Bureaucrat	john("john", 30);
+
+	john.signForm(*rrf);
+	john.excuteForm(*rrf);
+
 	std::cout << "\n----- ----- Ready Objects ----- -----\n" << std::endl;
 
 	Bureaucrat	junior("junior", 150);
 	Bureaucrat	senior("senior", 30);
 	Bureaucrat	master("master", 1);
 	Intern		intern;
-	Form*	pSA;
-	Form*	pRA;
-	Form*	pPA;
+	Form*		pSA;
+	Form*		pRA;
+	Form*		pPA;
 
 	std::cout << "\n----- ----- Make Forms ----- -----\n" << std::endl;
 
-	pSA = intern.makeForm("ShrubberyCreationForm", "home");
-	pRA = intern.makeForm("RobotomyRequestForm", "Jin");
-	pPA = intern.makeForm("PresidentialPardonForm", "Nao");
+	pSA = intern.makeForm("shrubbery creation", "home");
+	pRA = intern.makeForm("robotomy request", "Jin");
+	pPA = intern.makeForm("presidential pardon", "Nao");
 
 	try
 	{
@@ -59,6 +71,7 @@ int	main()
 	}
 
 	std::cout << "\n----- ----- Done ----- -----\n" << std::endl;
+
 
 	return 0;
 }

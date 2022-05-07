@@ -1,11 +1,5 @@
 #include "Intern.hpp"
 
-/*
-	void 		(Harl::*funcPtr[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-
-	(this->*funcPtr[index])();
-*/
-
 const char * Intern::NoMatchForm::what(void) const throw()
 {
 	return ("[ EXCEPTION ] NoMatchForm");
@@ -36,7 +30,7 @@ Form*	Intern::makeForm(const std::string& formName, const std::string& target)
 {
 	Form*		newForm;
 	Form*		(Intern::*funcPtr[3])(const std::string& target);
-	std::string	presetForms[3] = {"ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm"};
+	std::string	presetForms[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 
 	funcPtr[0] = &Intern::makeShrubberyForm;
 	funcPtr[1] = &Intern::makeRobotomyForm;
