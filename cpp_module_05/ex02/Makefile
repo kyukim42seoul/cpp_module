@@ -1,6 +1,6 @@
 NAME = moreForm
 CXX = c++
-CXXFLAGS = -W -Wall -Wextra -Werror -std=c++98 -pedantic
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJECTS = main.o \
 		Bureaucrat.o \
 		Form.o \
@@ -8,7 +8,7 @@ OBJECTS = main.o \
 		RobotomyRequestForm.o \
 		PresidentialPardonForm.o \
 
-all : $(NAME) clean
+all : $(NAME)
 
 $(NAME) : $(OBJECTS)
 	$(CXX) -o $(NAME) $(CXXFLAGS) $(OBJECTS)
