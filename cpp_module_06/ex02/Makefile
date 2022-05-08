@@ -1,8 +1,11 @@
-NAME = convert
+NAME = IdentifyType
 CXX = c++
-CXXFLAGS = #-Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJECTS = main.o \
-		Conversion.o \
+		Base.o \
+		A.o \
+		B.o \
+		C.o
 
 all : $(NAME)
 

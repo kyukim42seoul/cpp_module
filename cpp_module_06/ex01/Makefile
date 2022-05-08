@@ -1,8 +1,9 @@
-NAME = convert
+NAME = Serialization
 CXX = c++
-CXXFLAGS = #-Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJECTS = main.o \
-		Conversion.o \
+		Serialization.o \
+		Data.o
 
 all : $(NAME)
 

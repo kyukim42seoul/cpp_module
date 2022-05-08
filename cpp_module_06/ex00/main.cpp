@@ -7,9 +7,14 @@ int	main(int argc, char *argv[])
 		std::cout << "Invalid number of Arguments" << std::endl;
 		return (EXIT_FAILURE);
 	}
-	Conversion	converter(argv[1]);
-
-	std::cout << converter << std::endl;
-
+	try
+	{
+		Conversion	converter(argv[1]);
+		std::cout << converter << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << '\n';
+	}
 	return (EXIT_SUCCESS);
 }
