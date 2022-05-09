@@ -13,10 +13,10 @@
 class Conversion
 {
 private:
+	char			_charValue;
 	int				_intValue;
 	float			_floatValue;
 	double			_doubleValue;
-	char			_charValue;
 	bool			_isNan;
 	bool			_isPrintable;
 	bool			_isInteger;

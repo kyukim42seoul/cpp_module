@@ -5,13 +5,13 @@
 
 Base*	Base::generate(void)
 {
-	switch (rand() % 10)
+	switch (rand() % 3)
 	{
-	case 1: case 2: case 3:
+	case 0:
 		return (new A());
-	case 4: case 5: case 6:
+	case 1:
 		return (new B());
-	case 7: case 8: case 9:
+	case 2:
 		return (new C());
 	default:
 		return (new A());

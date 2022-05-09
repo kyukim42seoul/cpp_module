@@ -15,6 +15,17 @@ Serialization::Serialization(void)
 {
 }
 
+Serialization::Serialization(const Serialization& origin)
+{
+	static_cast<void>(origin);
+}
+
 Serialization::~Serialization(void)
 {
+}
+
+Serialization& Serialization::operator=(const Serialization& other)
+{
+	static_cast<void>(other);
+	return (*this);
 }

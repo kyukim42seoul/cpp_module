@@ -6,6 +6,9 @@
 class Data;
 class Serialization
 {
+private:
+	Serialization(const Serialization& origin);
+	Serialization& operator=(const Serialization& other);
 public:
 	uintptr_t	serialize(Data* ptr);
 	Data*		deserialize(uintptr_t raw);

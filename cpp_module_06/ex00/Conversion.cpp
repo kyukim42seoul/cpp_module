@@ -127,7 +127,7 @@ Conversion::Conversion(Conversion& origin)
 }
 
 Conversion::Conversion(const std::string& input)
-: _intValue(0), _floatValue(0), _charValue(0), _doubleValue(0), _isPrintable(false), _isInteger(false), _isImpossible(false), _isNan(false), _positiveInfinity(false), _negativeInfinity(false)
+: _charValue(0), _intValue(0), _floatValue(0), _doubleValue(0.0), _isNan(false), _isPrintable(false), _isInteger(false), _isImpossible(false), _positiveInfinity(false), _negativeInfinity(false)
 {
 	char *end(NULL);
 
