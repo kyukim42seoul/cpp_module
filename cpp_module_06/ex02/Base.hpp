@@ -1,5 +1,5 @@
-#ifndef __DATA_HPP__
-#define __DATA_HPP__
+#ifndef __BASE_HPP__
+#define __BASE_HPP__
 
 #include <iostream>
 #include <cstdlib>

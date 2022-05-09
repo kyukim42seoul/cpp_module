@@ -37,30 +37,33 @@ void	Base::identify(Base& p)
 	{
 		A& refA = dynamic_cast<A&>(p);
 		std::cout << "It's A class pointer" << std::endl;
-		(void)refA;
+		static_cast<void>(refA);
 	}
-	catch(std::bad_cast)
+	catch(std::exception& e)
 	{
+		std::cout << e.what() << std::endl;
 	}
 
 	try
 	{
 		B& refB = dynamic_cast<B&>(p);
 		std::cout << "It's B class pointer" << std::endl;
-		(void)refB;
+		static_cast<void>(refB);
 	}
-	catch(std::bad_cast)
+	catch(std::exception& e)
 	{
+		std::cout << e.what() << std::endl;
 	}
 
 	try
 	{
 		C& refC = dynamic_cast<C&>(p);
 		std::cout << "It's C class pointer" << std::endl;
-		(void)refC;
+		static_cast<void>(refC);
 	}
-	catch(std::bad_cast)
+	catch(std::exception& e)
 	{
+		std::cout << e.what() << std::endl;
 	}
 }
 
