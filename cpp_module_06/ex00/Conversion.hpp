@@ -13,33 +13,21 @@
 class Conversion
 {
 private:
-	std::string		_input;
 	int				_intValue;
 	float			_floatValue;
 	double			_doubleValue;
 	char			_charValue;
-	// bool			_negative;
-	// unsigned int	_floatPrecision;
-	// unsigned int	_doublePrecision;
-	// bool			_isNan;
+	bool			_isNan;
 	bool			_isPrintable;
-	bool			_isFloat;
+	bool			_isInteger;
+	bool			_isImpossible;
+	bool			_positiveInfinity;
+	bool			_negativeInfinity;
 	Conversion(void);
 	Conversion(Conversion& origin);
 	Conversion& operator=(const Conversion& other);
+	void			checkPesudo(const std::string& input);
 public:
-	// class NonDisplayable : public std::exception
-	// {
-	// 	virtual const char* what(void) const throw();
-	// };
-	class IsEmpty : public std::exception
-	{
-		virtual const char* what(void) const throw();
-	};
-	const int&		getInt(void) const;
-	const float&	getFloat(void) const;
-	const double&	getDouble(void) const;
-	const char&		getChar(void) const;
 	void			printChar(std::ostream&) const;
 	void			printInt(std::ostream&) const;
 	void			printFloat(std::ostream&) const;
