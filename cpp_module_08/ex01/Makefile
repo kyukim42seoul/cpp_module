@@ -1,7 +1,8 @@
 NAME = Span
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-OBJECTS = main.o
+OBJECTS = main.o \
+		Span.o
 
 all : $(NAME)
 

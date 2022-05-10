@@ -1,4 +1,4 @@
-NAME = EasyFind
+NAME = easyfind
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJECTS = main.o

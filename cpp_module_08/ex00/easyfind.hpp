@@ -12,9 +12,9 @@
 template<typename T>
 typename T::const_iterator easyfind(T a, int b)
 {
-	typename T::const_iterator iter = std::find(std::begin(a), std::end(a), b);
-	// if (iter == a.end)
-	// 	throw std::runtime_error("Fail: easyfind()");
+	typename T::const_iterator iter = std::find(a.begin(), a.end(), b);
+	if (iter == a.end())
+		throw std::runtime_error("Fail: easyfind()");
 	return (iter);
 }
 
