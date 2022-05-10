@@ -1,47 +1,54 @@
+#include <iostream>
 #include "Array.hpp"
-#include <string>
 
-int	main()
+#define MAX_VAL 750
+int main(int, char**)
 {
-	Array<int>	iArray(10);
-	Array<std::string>	strArray(10);
-	int	iCase[100] = {1, 2, 3,4, 5, 6, 7};
-	std::string	strCase[100] = {"hello", "fish", "meat", "hi"};
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
 
-	iArray.fillArray(iCase, 10);
-	const int* iBuf = iArray.getArray();
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-	strArray.fillArray(strCase, 10);
-	const std::string* strBuf = strArray.getArray();
-
-	for (int count = 0; count < 10; count++)
-	{
-		std::cout << iBuf[count] << std::endl;
-		std::cout << strBuf[count] << std::endl;
-	}
-
-	std::cout << iArray.size() << " " << strArray.size() << std::endl;
-
-	Array<char>	cArray;
-
-	std::cout << cArray.size() << std::endl;
-
-	try
-	{
-		std::cout << iArray[12] << std::endl;
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	try
-	{
-		std::cout << strArray[3] << std::endl;
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-	return (EXIT_SUCCESS);
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+        // std::cout << numbers[i] << std::endl;
+    }
+    delete [] mirror;
+    return 0;
 }
