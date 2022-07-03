@@ -5,9 +5,9 @@ int	main()
 	std::cout << "\n----- ----- START ----- -----\n" << std::endl;
 	std::cout << "\n----- ----- Instantiation ----- -----\n" << std::endl;
 
-	std::vector<int>	iVector(10);
-	std::list<char>		cList(10);
-	std::deque<int>		iDeque(10);
+	std::vector<int>	iVector;
+	std::list<char>		cList;
+	std::deque<int>		iDeque;
 
 	std::cout << "\n----- ----- Set Container ----- -----\n" << std::endl;
 

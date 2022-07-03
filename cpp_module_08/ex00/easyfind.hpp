@@ -9,10 +9,10 @@
 #include <list>
 
 
-template<typename T>
-typename T::const_iterator easyfind(T a, int b)
+template<class T>
+class T::const_iterator easyfind(T a, int b)
 {
-	typename T::const_iterator iter = std::find(a.begin(), a.end(), b);
+	class T::const_iterator iter = std::find(a.begin(), a.end(), b);
 	if (iter == a.end())
 		throw std::runtime_error("Fail: easyfind()");
 	return (iter);

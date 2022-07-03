@@ -42,12 +42,12 @@ std::size_t	Span::shortestSpan(void)
 		std::vector<int>	vectorBuf(_iVector.begin(), _iVector.end());
 		std::sort(vectorBuf.begin(), vectorBuf.end());
 		std::vector<int>::iterator	prevIter = vectorBuf.begin();
-		int	Span = *(prevIter + 1) - *prevIter;
+		int	Span = std::abs(*(prevIter + 1) - *prevIter);
 		prevIter++;
 		while (prevIter + 2 != vectorBuf.end())
 		{
-			if (*(prevIter + 1) - *prevIter < Span)
-				Span = *(prevIter + 1) - *prevIter;
+			if (std::abs(*(prevIter + 1) - *prevIter) < Span)
+				Span = std::abs(*(prevIter + 1) - *prevIter);
 			prevIter++;
 		}
 		return (Span);
@@ -62,7 +62,8 @@ std::size_t	Span::longestSpan(void)
 	{
 		std::cout << "Inner Min: " << *std::min_element(_iVector.begin(), _iVector.end()) << std::endl;
 		std::cout << "Inner Max: " << *std::max_element(_iVector.begin(), _iVector.end()) << std::endl;
-		return (*std::max_element(_iVector.begin(), _iVector.end()) - *std::min_element(_iVector.begin(), _iVector.end()));
+
+		return (std::abs(static_cast<long>(*std::max_element(_iVector.begin(), _iVector.end())) - static_cast<long>(*std::min_element(_iVector.begin(), _iVector.end()))));
 	}
 }
 

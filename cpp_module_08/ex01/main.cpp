@@ -32,13 +32,13 @@ int	main()
 
 	std::cout << "\n----- ----- 2nd Vector ----- -----\n" << std::endl;
 
-	Span	newData(10000);
+	Span	newData(10);
 
 	try
 	{
-		for (int check = 0; check < 10000; check++)
+		for (int check = 0; check < 10; check++)
 		{
-			int	newValue = rand() % 10000;
+			int	newValue = rand() % 10;
 			newData.addNumber(newValue);
 		}
 	}
@@ -74,6 +74,7 @@ int	main()
 	try
 	{
 		cVector.fillVector(80);
+		std::cout << "Success" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -82,6 +83,7 @@ int	main()
 	try
 	{
 		dVector.fillVector(120);
+		std::cout << "Fail" << std::endl;
 	}
 	catch(const std::exception& e)
 	{

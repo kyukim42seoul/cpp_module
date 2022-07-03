@@ -1,12 +1,13 @@
 #include "MutantStack.hpp"
 #include <list>
+#include <vector>
 
 int main()
 {
 	std::cout << "\n----- ----- START ----- -----\n" << std::endl;
 	std::cout << "\n----- ----- MutantStack ----- -----\n" << std::endl;
 
-	MutantStack<int>	mstack;
+	MutantStack<int, std::vector<int> >	mstack;
 
 	mstack.push(5);
 	mstack.push(17);
@@ -23,8 +24,8 @@ int main()
 
 	mstack.push(0);
 
-	MutantStack<int>::iterator it = mstack.begin();
-	MutantStack<int>::iterator ite = mstack.end();
+	MutantStack<int, std::vector<int> >::iterator it = mstack.begin();
+	MutantStack<int, std::vector<int> >::iterator ite = mstack.end();
 
 	++it;
 	--it;
@@ -34,7 +35,9 @@ int main()
 		++it;
 	}
 
-	std::stack<int> s(mstack);
+	std::stack<int, std::vector<int> > s(mstack);
+
+	std::cout << s.top() << std::endl;
 
 	std::cout << "\n----- ----- List ----- -----\n" << std::endl;
 
